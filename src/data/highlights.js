@@ -1,3 +1,5 @@
+/* Instagram story highlights shown on the homepage */
+
 export const instagramHighlights = [
   { name: 'Gaming',           emoji: '🎮' },
   { name: 'Honneur',          emoji: '🥇' },

@@ -1,5 +1,65 @@
+/* ============================================================
+   📄 FILE: src/App.css (ALL STYLES FOR THE WHOLE WEBSITE)
+   ============================================================
+   This is the ONLY CSS file in the entire website.
+   Every color, font, spacing, and animation is defined here.
+   
+   HOW THIS FILE IS ORGANIZED:
+   1.   CSS Variables (colors, fonts, sizes) — :root
+   2.   Dark mode overrides — [data-theme="dark"]
+   3.   Basic resets and base element styles (*, body, a, h1, etc.)
+   4.   Layout utilities (.container, .section)
+   5.   Header and navigation (.site-header, .main-nav)
+   6.   Buttons (.btn, .btn-primary, .btn-outline)
+   7.   Hero section (big banner at top of homepage)
+   8.   Home page sections (pillars, impact, mosaic, partners)
+   9.   Events grid and event cards
+   10.  Gallery page
+   11.  Event detail page (single activity view)
+   12.  About page
+   13.  Team page
+   14.  Join page
+   15.  404 / Not Found page
+   16.  Footer
+   17.  Mobile responsive styles (@media max-width: 768px)
+   18.  Dark mode specific overrides
+   
+   KEY CONCEPT — CSS VARIABLES:
+   Instead of writing colors like #1a4f8a everywhere, we define
+   a variable like --cik-blue and use it everywhere.
+   To change the whole site's colors, edit ONE line at the top.
+   For dark mode, we override these variables in [data-theme="dark"].
+   ============================================================ */
+
 /* Club Ibn Khaldoun — CIK site styles */
 
+/* ============================================================
+   🎨 LIGHT MODE COLORS (DEFAULT)
+   ============================================================
+   :root means "the topmost element" (the <html> tag).
+   Variables defined here are available everywhere in CSS.
+   
+   To use a variable: color: var(--cik-blue);
+   
+   --cik-blue:        Main brand color (medium blue)
+   --cik-blue-dark:   Darker blue (for hover states, footer background)
+   --cik-red:         Accent color (red, used for borders/emphasis)
+   --cik-blue-light:  Very light blue (for section backgrounds)
+   --text:            Main text color (dark)
+   --text-muted:      Secondary text color (gray)
+   --surface:         Card/box background (white)
+   --border:          Border color (light blue-gray)
+   --shadow:          Box shadow (subtle blue shadow)
+   --hero-overlay:    Dark overlay on hero background image
+   --bg:              Page background (light blue-white)
+   --font-ar:         Font for Arabic text (Cairo)
+   --font-latin:      Font for French/English text (Source Sans 3)
+   --radius:          Border radius for cards (10px)
+   --radius-sm:       Smaller border radius (6px)
+   --header-h:        Height of the sticky header (72px)
+   --container:       Max width of content area (1120px or 92% of viewport)
+   --transition:      Speed of hover animations (0.2s)
+   ============================================================ */
 :root {
     --cik-blue: #1a4f8a;
     --cik-blue-dark: #123a66;
@@ -21,6 +81,16 @@
     --transition: 0.2s ease;
 }
 
+/* ============================================================
+   🌙 DARK MODE COLORS
+   ============================================================
+   [data-theme="dark"] overrides the CSS variables when the
+   user has dark mode enabled. The <html> tag gets
+   data-theme="dark" added to it automatically.
+   
+   Only the COLOR variables change — everything else stays the same.
+   This is the power of CSS variables: change once, update everywhere.
+   ============================================================ */
 [data-theme="dark"] {
     --cik-blue: #4a8fd4;
     --cik-blue-dark: #2d6ba8;
@@ -1027,6 +1097,15 @@ ol {
 .notfound-msg {
     font-size: 1.2rem;
     color: var(--text-muted);
+}
+
+.notfound-container {
+    text-align: center;
+    padding-top: 4rem;
+}
+
+.notfound-home-btn {
+    margin-top: 1.5rem;
 }
 
 .event-nav {

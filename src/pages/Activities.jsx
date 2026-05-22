@@ -1,3 +1,5 @@
+/* Activities page — full list of events sorted newest-first */
+
 import { useEffect } from "react";
 import { getSortedEvents } from "../data/events";
 import EventCard from "../components/EventCard";
@@ -20,12 +22,7 @@ export default function Activities({ lang, text }) {
         </p>
         <div className="events-grid">
           {events.map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              lang={lang}
-              linkLabel={labels.viewPhotos}
-            />
+            <EventCard key={event.id} event={event} lang={lang} linkLabel={labels.viewPhotos} />
           ))}
         </div>
       </div>

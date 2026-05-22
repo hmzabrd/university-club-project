@@ -1,3 +1,5 @@
+/* App — root component: language, theme, routing */
+
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { siteText } from "./data/siteText";
@@ -13,7 +15,6 @@ import Join from "./pages/Join";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 
-// Scrolls to top every time you navigate to a new page
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -42,25 +43,15 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Header
-        lang={lang}
-        setLang={setLang}
-        text={text}
-        theme={theme}
-        setTheme={setTheme}
-      />
+      <Header lang={lang} setLang={setLang} text={text} theme={theme} setTheme={setTheme} />
       <Routes>
         <Route path="/" element={<Home {...pageProps} />} />
         <Route path="/about" element={<About {...pageProps} />} />
         <Route path="/activities" element={<Activities {...pageProps} />} />
-        <Route
-          path="/activities/:id"
-          element={<EventDetail {...pageProps} />}
-        />
+        <Route path="/activities/:id" element={<EventDetail {...pageProps} />} />
         <Route path="/team" element={<Team {...pageProps} />} />
         <Route path="/gallery" element={<Gallery {...pageProps} />} />
         <Route path="/join" element={<Join {...pageProps} />} />
-        {/* Catch-all 404 */}
         <Route path="*" element={<NotFound {...pageProps} />} />
       </Routes>
       <Footer text={text} />

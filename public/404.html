@@ -1,13 +1,34 @@
 <!DOCTYPE html>
+<!-- ============================================================
+     📄 FILE: public/404.html (GITHUB PAGES SPA FIX)
+     ============================================================
+     This file is ONLY used when hosted on GitHub Pages.
+     GitHub Pages serves static files. When you visit a URL
+     like /activities/DYiC6BmCGyL, GitHub's server looks for a
+     folder called "activities/DYiC6BmCGyL" — which doesn't exist.
+     So it returns this 404.html page.
+     
+     What this script does:
+     1. Takes the original URL the user tried to visit
+     2. Encodes it into the URL query string
+     3. Redirects to index.html with the encoded URL
+     4. The script in index.html decodes it back
+     5. React Router then shows the correct page
+     
+     Without this, sharing links like /activities/xyz would
+     always show a 404 error on GitHub Pages.
+     ============================================================ -->
 <html>
 <head>
   <meta charset="utf-8">
   <title>CIK | Club Ibn Khaldoun</title>
   <script>
-    // This file catches any 404 and redirects back to index.html
-    // while encoding the original path so React Router can restore it.
+    // segmentsToKeep = 1 means we keep the first path segment
+    // (the repository name if hosted on GitHub Pages sub-path).
     var segmentsToKeep = 1;
     var l = window.location;
+    
+    // Redirect to index.html with the original path encoded in the query string.
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
       l.pathname.split('/').slice(0, 1 + segmentsToKeep).join('/') + '/?/' +
@@ -17,5 +38,7 @@
     );
   </script>
 </head>
-<body></body>
+<body>
+  <!-- This page has no visible content — it immediately redirects. -->
+</body>
 </html>

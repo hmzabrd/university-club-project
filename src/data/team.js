@@ -1,3 +1,5 @@
+/* Team members — roleKey maps to siteText translations */
+
 export const team = [
   { id: '1', roleKey: 'rolePresident',      name: 'Douaa Baslam',                         photo: '/images/team/01.jpg' },
   { id: '2', roleKey: 'roleVicePresident',   name: 'Ali Oulahbib',                         photo: '/images/team/02.jpg' },

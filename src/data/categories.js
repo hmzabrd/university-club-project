@@ -1,3 +1,5 @@
+/* Activity categories with translated labels */
+
 export const categories = [
   { id: 'all',       label: { ar: 'الكل',               fr: 'Tout',              en: 'All' } },
   { id: 'health',    label: { ar: 'صحة مدرسية وقوافل', fr: 'Santé & caravanes', en: 'Health & caravans' } },

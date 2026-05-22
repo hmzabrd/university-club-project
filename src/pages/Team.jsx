@@ -1,5 +1,8 @@
+/* Team page — club bureau members with photos and roles */
+
 import { useEffect } from "react";
 import { team } from "../data/team";
+import { fallbackImg } from "../utils/lang";
 
 export default function Team({ text }) {
   const roles = text.team;
@@ -17,13 +20,7 @@ export default function Team({ text }) {
           {team.map((member) => (
             <article key={member.id} className="team-card">
               <div className="team-card-photo">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  onError={(e) => {
-                    e.target.src = "/images/logo.jpg";
-                  }}
-                />
+                <img src={member.photo} alt={member.name} onError={fallbackImg} />
               </div>
               <div className="team-card-info">
                 <h3>{member.name}</h3>

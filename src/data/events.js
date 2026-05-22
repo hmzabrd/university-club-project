@@ -1534,40 +1534,35 @@ export const events = [
 ];
 
 export function getSortedEvents() {
-  const sorted = [...events];
-  sorted.sort((a, b) => {
+  return [...events].sort((a, b) => {
     if (a.date > b.date) return -1;
     if (a.date < b.date) return 1;
     return 0;
   });
-  return sorted;
 }
 
 export function getEventById(id) {
-  return events.find((event) => event.id === id) || null;
+  return events.find((event) => event.id === id);
 }
 
 export function getAdjacentEvents(id) {
   const sorted = getSortedEvents();
   const index = sorted.findIndex((event) => event.id === id);
   if (index === -1) return { prev: null, next: null };
-  const prev = index > 0 ? sorted[index - 1] : null;
-  const next = index < sorted.length - 1 ? sorted[index + 1] : null;
-  return { prev, next };
+  return {
+    prev: index > 0 ? sorted[index - 1] : null,
+    next: index < sorted.length - 1 ? sorted[index + 1] : null,
+  };
 }
 
 export function getAllGalleryImages() {
-  const allImages = [];
-  events.forEach((event) => {
-    event.images.forEach((src) => {
-      allImages.push({
-        src: src,
-        eventId: event.id,
-        category: event.category,
-        caption: event.title,
-        instagram: event.instagram,
-      });
-    });
-  });
-  return allImages;
+  return events.flatMap((event) =>
+    event.images.map((src) => ({
+      src,
+      eventId: event.id,
+      category: event.category,
+      caption: event.title,
+      instagram: event.instagram,
+    }))
+  );
 }

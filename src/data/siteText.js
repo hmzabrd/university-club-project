@@ -1,3 +1,5 @@
+/* All site text in 3 languages: ar, fr, en */
+
 export const siteText = {
   ar: {
     clubShort: 'نادي ابن خلدون',
@@ -18,22 +20,16 @@ export const siteText = {
         { emoji: '🎓', title: 'الحياة الجامعية', text: 'الذكرى العاشرة، ملتقيات التوجيه، وأسبوع ريادة الأعمال.' },
         { emoji: '✨', title: 'الثقافة والريادة', text: 'ألعاب، كاريوكي، وثائقي، تبادلات ثقافية ونزهات.' },
       ],
-      impactTitle: 'أرقامنا',
-      impactItems: [
-        { label: '10 سنوات', detail: 'تأسس النادي سنة 2015 — الذكرى العاشرة نوفمبر 2025' },
-        { label: '1286 متابع', detail: 'على إنستغرام @cik_fsbm' },
-        { label: 'شراكات', detail: 'الأيادي البيضاء، باب الريان، إدماج' },
-      ],
       highlightsTitle: 'محاور على إنستغرام',
       quote: 'جمعنا النادي كبداية عادية… فصرنا عائلة تتعلم من بعضها وتكبر معاً لنصنع الأثر ونمنح الفرح أينما ذهبنا.',
       mosaicTitle: 'لحظات من ميداننا',
       partnersTitle: 'شركاؤنا',
       partners: ['مؤسسة الأيادي البيضاء للتنمية', 'جمعية باب الريان', 'مؤسسة إدماج', 'أندية كلية العلوم بن مسيك'],
+      teamTitle: 'فريق النادي',
       latestTitle: 'آخر الأنشطة',
       viewAll: 'عرض كل الأنشطة',
       anniversaryNote: 'الذكرى العاشرة لتأسيس النادي — احتفال نوفمبر 2025.',
       followIg: 'المزيد على إنستغرام',
-      activitiesCount: 'نشاط موثّق',
     },
     about: {
       title: 'من نحن',
@@ -67,6 +63,9 @@ export const siteText = {
       prev: 'السابق',
       next: 'التالي',
       eventNav: 'تنقل بين الأنشطة',
+      watchVideo: 'شاهد على إنستغرام ↗',
+      videoMessage: 'هذا المنشور فيديو — شاهده على إنستغرام',
+      openInstagram: 'فتح على إنستغرام',
     },
     team: {
       title: 'فريق النادي',
@@ -85,6 +84,7 @@ export const siteText = {
       title: 'معرض الصور',
       intro: 'لقطات من قوافلنا وأنشطتنا — صور من @cik_fsbm. صفِّ حسب المحور.',
       resultsLabel: 'صورة',
+      showMore: 'عرض المزيد',
     },
     join: {
       title: 'انضم إلينا',
@@ -124,22 +124,16 @@ export const siteText = {
         { emoji: '🎓', title: 'Vie universitaire', text: "10 ans du club, orientation, entrepreneuriat." },
         { emoji: '✨', title: 'Culture & Entrepreneuriat', text: 'Gaming, karaoké, documentaire, échanges culturels.' },
       ],
-      impactTitle: 'Nos chiffres',
-      impactItems: [
-        { label: '10 ans', detail: 'Fondé en 2015 — 10e anniversaire novembre 2025' },
-        { label: '1286 abonnés', detail: 'Sur Instagram @cik_fsbm' },
-        { label: 'Partenariats', detail: 'Al Ayadi Al Bayda, Bab Rayane, Idmaj' },
-      ],
       highlightsTitle: 'Thèmes sur Instagram',
       quote: "Nous sommes devenus une famille qui apprend, écoute et grandit ensemble pour créer de l'impact.",
       mosaicTitle: 'Sur le terrain',
       partnersTitle: 'Nos partenaires',
       partners: ['Association Al Ayadi Al Bayda', 'Association Bab Rayane', 'Association Idmaj', 'Clubs FSBM'],
+      teamTitle: 'Notre équipe',
       latestTitle: 'Activités récentes',
       viewAll: 'Toutes les activités',
       anniversaryNote: "10e anniversaire du club — novembre 2025.",
       followIg: 'Plus sur Instagram',
-      activitiesCount: 'activités documentées',
     },
     about: {
       title: 'À propos',
@@ -173,6 +167,9 @@ export const siteText = {
       prev: 'Précédent',
       next: 'Suivant',
       eventNav: 'Navigation activités',
+      watchVideo: 'Voir la vidéo ↗',
+      videoMessage: 'Ce post est une vidéo — regardez-le sur Instagram',
+      openInstagram: 'Ouvrir sur Instagram',
     },
     team: {
       title: 'Notre équipe',
@@ -191,6 +188,7 @@ export const siteText = {
       title: 'Galerie',
       intro: 'Moments de nos caravanes et activités. Filtrez par thème.',
       resultsLabel: 'photos',
+      showMore: 'Voir plus',
     },
     join: {
       title: 'Nous rejoindre',
@@ -230,22 +228,16 @@ export const siteText = {
         { emoji: '🎓', title: 'Campus life', text: '10th anniversary, orientation, entrepreneurship week.' },
         { emoji: '✨', title: 'Culture & Entrepreneurship', text: 'Gaming, karaoke, documentary, cultural exchanges.' },
       ],
-      impactTitle: 'Our impact',
-      impactItems: [
-        { label: '10 years', detail: 'Founded 2015 — 10th anniversary November 2025' },
-        { label: '1286 followers', detail: 'On Instagram @cik_fsbm' },
-        { label: 'Partnerships', detail: 'Al Ayadi Al Bayda, Bab Rayane, Idmaj' },
-      ],
       highlightsTitle: 'Themes on Instagram',
       quote: 'We became a family that learns, listens and grows together to create impact and spread joy.',
       mosaicTitle: 'Moments from the field',
       partnersTitle: 'Our partners',
       partners: ['Al Ayadi Al Bayda', 'Bab Rayane', 'Idmaj', 'FSBM faculty clubs'],
+      teamTitle: 'Our team',
       latestTitle: 'Recent activities',
       viewAll: 'All activities',
       anniversaryNote: '10th anniversary — November 2025.',
       followIg: 'More on Instagram',
-      activitiesCount: 'documented activities',
     },
     about: {
       title: 'About us',
@@ -279,6 +271,9 @@ export const siteText = {
       prev: 'Previous',
       next: 'Next',
       eventNav: 'Activity navigation',
+      watchVideo: 'Watch on Instagram ↗',
+      videoMessage: 'This post is a video — watch it on Instagram',
+      openInstagram: 'Open on Instagram',
     },
     team: {
       title: 'Our team',
@@ -297,6 +292,7 @@ export const siteText = {
       title: 'Gallery',
       intro: 'Moments from our caravans and activities. Filter by theme.',
       resultsLabel: 'photos',
+      showMore: 'Show more',
     },
     join: {
       title: 'Join us',
@@ -318,6 +314,7 @@ export const siteText = {
   },
 };
 
+/* External links — update once, used everywhere */
 export const links = {
   instagram: 'https://www.instagram.com/cik_fsbm/',
   linkedin:  'https://www.linkedin.com/company/club-ibn-khaldoun/',

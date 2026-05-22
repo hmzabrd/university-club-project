@@ -1,15 +1,40 @@
 <!doctype html>
+<!-- ============================================================
+     📄 FILE: index.html (THE ONLY HTML PAGE)
+     ============================================================
+     This is the ONLY real HTML file in the entire website.
+     Everything else is JavaScript (React components).
+     
+     What it does:
+     1. Sets the language to Arabic (ar) and direction to right-to-left (rtl)
+     2. Loads fonts from Google Fonts (Cairo for Arabic, Source Sans 3 for Latin)
+     3. Provides an empty <div id="root"> where React will build the site
+     4. Loads /src/main.jsx which starts the React app
+     5. Has a special script that fixes URLs after GitHub Pages redirection
+     
+     Open Graph meta tags make link previews work on WhatsApp, Facebook, etc.
+     ============================================================ -->
 <html lang="ar" dir="rtl">
     <head>
+        <!-- Character encoding (supports Arabic, French, English, emojis) -->
         <meta charset="UTF-8" />
+        
+        <!-- Browser tab icon -->
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        
+        <!-- Makes the site look good on phones and tablets -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Description shown in search results -->
         <meta
             name="description"
             content="Club Ibn Khaldoun — Action Sociale et Culturelle, FSBM Casablanca."
         />
 
-        <!-- Open Graph (link previews on WhatsApp, Instagram, Twitter, etc.) -->
+        <!-- 
+          Open Graph tags — these control how the page appears when shared
+          on WhatsApp, Instagram, Facebook, Twitter, etc.
+        -->
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Club Ibn Khaldoun" />
         <meta property="og:title" content="Club Ibn Khaldoun — CIK" />
@@ -26,15 +51,32 @@
             content="https://hmzabrd.github.io/university-club-project/"
         />
         <meta name="twitter:card" content="summary" />
+        
+        <!-- Google Fonts: preconnect speeds up font loading -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        
+        <!-- 
+          Load two fonts:
+          - Cairo: a modern Arabic font (for Arabic text)
+          - Source Sans 3: a clean Latin font (for French/English text)
+        -->
         <link
             href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
+        
+        <!-- Default browser tab title -->
         <title>CIK | Club Ibn Khaldoun — FSBM</title>
 
-        <!-- Restores the correct URL after the 404.html redirect on GitHub Pages -->
+        <!-- 
+          🔧 GITHUB PAGES URL FIX
+          When hosting on GitHub Pages, direct URL access to a sub-page
+          (e.g. /activities/DYiC6BmCGyL) causes a 404 error from GitHub's server.
+          The 404.html page then redirects back to index.html with the original
+          URL encoded in the query string. This script decodes it and restores
+          the correct URL so React Router can show the right page.
+        -->
         <script>
             (function (l) {
                 if (l.search[1] === "/") {
@@ -57,7 +99,19 @@
         </script>
     </head>
     <body>
+        <!-- 
+          🏗️ ROOT DIV
+          This empty div is where React will build the entire website.
+          The div with id="root" is like an empty canvas.
+          React draws all the pages, buttons, text, and images inside it.
+        -->
         <div id="root"></div>
+        
+        <!-- 
+          🚀 LOAD THE REACT APP
+          This line loads src/main.jsx, which starts the whole application.
+          The browser downloads this file, runs it, and React takes over.
+        -->
         <script type="module" src="/src/main.jsx"></script>
     </body>
 </html>
