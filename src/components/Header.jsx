@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { smoothScrollToTop } from "../utils/lang";
 import LangSwitch from "./LangSwitch";
 import ThemeToggle from "./ThemeToggle";
 
@@ -19,6 +20,7 @@ export default function Header({ lang, setLang, text, theme, setTheme }) {
 
   function closeMenu() {
     setMenuOpen(false);
+    smoothScrollToTop();
   }
 
   return (

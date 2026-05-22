@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { smoothScrollToTop } from "./utils/lang";
 import { siteText } from "./data/siteText";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,12 +14,13 @@ import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Join from "./pages/Join";
 import NotFound from "./pages/NotFound";
+import BackToTop from "./components/BackToTop";
 import "./App.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    smoothScrollToTop();
   }, [pathname]);
   return null;
 }
@@ -44,6 +46,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Header lang={lang} setLang={setLang} text={text} theme={theme} setTheme={setTheme} />
+      <BackToTop />
       <Routes>
         <Route path="/" element={<Home {...pageProps} />} />
         <Route path="/about" element={<About {...pageProps} />} />

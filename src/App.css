@@ -61,6 +61,7 @@
    --transition:      Speed of hover animations (0.2s)
    ============================================================ */
 :root {
+    scroll-behavior: smooth;
     --cik-blue: #1a4f8a;
     --cik-blue-dark: #123a66;
     --cik-red: #c41e3a;
@@ -81,15 +82,13 @@
     --transition: 0.2s ease;
 }
 
+/* Smooth color transition when toggling dark/light mode */
+* {
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
 /* ============================================================
    🌙 DARK MODE COLORS
-   ============================================================
-   [data-theme="dark"] overrides the CSS variables when the
-   user has dark mode enabled. The <html> tag gets
-   data-theme="dark" added to it automatically.
-   
-   Only the COLOR variables change — everything else stays the same.
-   This is the power of CSS variables: change once, update everywhere.
    ============================================================ */
 [data-theme="dark"] {
     --cik-blue: #4a8fd4;
@@ -123,6 +122,7 @@ body {
     color: var(--text);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    transition: background 0.3s, color 0.3s;
 }
 
 body.lang-ar {
@@ -734,8 +734,8 @@ ol {
 }
 
 .event-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 28px rgba(26, 79, 138, 0.18);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 36px rgba(26, 79, 138, 0.2);
 }
 
 .event-card-link {
@@ -1037,6 +1037,7 @@ ol {
 
 /* object-fit: contain so the full photo shows without cropping */
 .event-gallery-item img {
+    cursor: pointer;
     width: 100%;
     height: auto;
     max-height: 520px;
@@ -1624,4 +1625,63 @@ ol {
     background: var(--blue);
     color: white;
     transform: translateY(-2px);
+}
+
+/* ── Back to top ──────────────────────────────────────────────────────────── */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: var(--cik-blue);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.back-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ── Fade in on scroll ────────────────────────────────────────────────────── */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Lightbox ─────────────────────────────────────────────────────────────── */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
 }

@@ -1,10 +1,11 @@
 /* Event detail page — full info, gallery, prev/next navigation */
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getEventById, getAdjacentEvents } from "../data/events";
 import { categories } from "../data/categories";
 import { t, fallbackImg } from "../utils/lang";
+import Lightbox from "../components/Lightbox";
 
 export default function EventDetail({ lang, text }) {
   const { id } = useParams();
@@ -27,6 +28,7 @@ export default function EventDetail({ lang, text }) {
     );
   }
 
+  const [lightboxSrc, setLightboxSrc] = useState(null);
   const category = categories.find((cat) => cat.id === event.category);
   const igUrl = event.instagram || "https://www.instagram.com/cik_fsbm/";
   const igLabel = event.instagram ? labels.seeInstagram : text.home.followIg;
@@ -61,7 +63,7 @@ export default function EventDetail({ lang, text }) {
           <div className="event-gallery">
             {event.images.map((src, i) => (
               <figure key={src} className="event-gallery-item">
-                <img src={src} alt={`${t(event.title, lang)} — ${i + 1}`} loading="lazy" onError={fallbackImg} />
+                <img src={src} alt={`${t(event.title, lang)} — ${i + 1}`} loading="lazy" onError={fallbackImg} onClick={() => setLightboxSrc(src)} />
               </figure>
             ))}
           </div>
@@ -82,6 +84,9 @@ export default function EventDetail({ lang, text }) {
           ) : <span />}
         </nav>
       </div>
+      {lightboxSrc && (
+        <Lightbox src={lightboxSrc} alt={t(event.title, lang)} onClose={() => setLightboxSrc(null)} />
+      )}
     </main>
   );
 }

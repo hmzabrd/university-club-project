@@ -1533,12 +1533,16 @@ export const events = [
   }
 ];
 
+let _sorted, _allImages;
 export function getSortedEvents() {
-  return [...events].sort((a, b) => {
-    if (a.date > b.date) return -1;
-    if (a.date < b.date) return 1;
-    return 0;
-  });
+  if (!_sorted) {
+    _sorted = [...events].sort((a, b) => {
+      if (a.date > b.date) return -1;
+      if (a.date < b.date) return 1;
+      return 0;
+    });
+  }
+  return _sorted;
 }
 
 export function getEventById(id) {
@@ -1556,13 +1560,16 @@ export function getAdjacentEvents(id) {
 }
 
 export function getAllGalleryImages() {
-  return events.flatMap((event) =>
-    event.images.map((src) => ({
-      src,
-      eventId: event.id,
-      category: event.category,
-      caption: event.title,
-      instagram: event.instagram,
-    }))
-  );
+  if (!_allImages) {
+    _allImages = events.flatMap((event) =>
+      event.images.map((src) => ({
+        src,
+        eventId: event.id,
+        category: event.category,
+        caption: event.title,
+        instagram: event.instagram,
+      }))
+    );
+  }
+  return _allImages;
 }

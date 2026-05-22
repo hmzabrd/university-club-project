@@ -8,6 +8,7 @@ import { getSortedEvents, getAllGalleryImages } from "../data/events";
 import { instagramHighlights } from "../data/highlights";
 import { links } from "../data/siteText";
 import EventCard from "../components/EventCard";
+import FadeIn from "../components/FadeIn";
 import { fallbackImg } from "../utils/lang";
 import { team } from "../data/team";
 
@@ -43,7 +44,7 @@ export default function Home({ lang, text }) {
       </section>
 
       {/* About / Pillars */}
-      <section className="section">
+      <FadeIn><section className="section">
         <div className="container">
           <h2 className="section-title">{h.introTitle}</h2>
           <p className="section-text">{h.introText}</p>
@@ -57,10 +58,10 @@ export default function Home({ lang, text }) {
             ))}
           </div>
         </div>
-      </section>
+      </section></FadeIn>
 
       {/* Photo Mosaic */}
-      <section className="section section-alt">
+      <FadeIn><section className="section section-alt">
         <div className="container">
           <h2 className="section-title">{h.mosaicTitle}</h2>
           <div className="home-mosaic">
@@ -71,10 +72,10 @@ export default function Home({ lang, text }) {
             ))}
           </div>
         </div>
-      </section>
+      </section></FadeIn>
 
       {/* Quote + Highlights */}
-      <section className="section">
+      <FadeIn><section className="section">
         <div className="container">
           <blockquote className="club-quote">{h.quote}</blockquote>
           <h2 className="section-title">{h.highlightsTitle}</h2>
@@ -87,10 +88,10 @@ export default function Home({ lang, text }) {
             ))}
           </div>
         </div>
-      </section>
+      </section></FadeIn>
 
       {/* Partners */}
-      <section className="section section-alt">
+      <FadeIn><section className="section section-alt">
         <div className="container">
           <h2 className="section-title">{h.partnersTitle}</h2>
           <div className="partners-grid">
@@ -103,12 +104,15 @@ export default function Home({ lang, text }) {
           </div>
           <p className="anniversary-note">{h.anniversaryNote}</p>
         </div>
-      </section>
+      </section></FadeIn>
 
       {/* Team */}
-      <section className="section">
+      <FadeIn><section className="section">
         <div className="container">
-          <h2 className="section-title">{h.teamTitle}</h2>
+          <div className="section-head">
+            <h2 className="section-title">{h.teamTitle}</h2>
+            <Link to="/team" className="link-more">{h.teamViewAll} →</Link>
+          </div>
           <div className="team-grid">
             {team.slice(0, 4).map((member) => (
               <article key={member.id} className="team-card">
@@ -123,10 +127,10 @@ export default function Home({ lang, text }) {
             ))}
           </div>
         </div>
-      </section>
+      </section></FadeIn>
 
       {/* Latest Activities */}
-      <section className="section">
+      <FadeIn><section className="section">
         <div className="container">
           <div className="section-head">
             <h2 className="section-title">{h.latestTitle}</h2>
@@ -141,7 +145,7 @@ export default function Home({ lang, text }) {
             <a href={links.instagram} target="_blank" rel="noreferrer">{h.followIg} @cik_fsbm →</a>
           </p>
         </div>
-      </section>
+      </section></FadeIn>
     </main>
   );
 }
