@@ -49,7 +49,7 @@ The site showcases the club's activities, team, and mission. All content is real
 ## 📂 Project Structure
 
 ```
-cik-website/
+university-club-project/
 ├── .gitignore                  # Git ignore rules
 ├── index.html                  # HTML entry point
 ├── vite.config.js              # Vite configuration
