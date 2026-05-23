@@ -475,17 +475,6 @@ ol {
     margin-bottom: 1rem;
 }
 
-.hero-badge {
-    display: inline-block;
-    background: var(--cik-red);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.35rem 1rem;
-    border-radius: 999px;
-    margin-bottom: 1.5rem;
-}
-
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -1333,6 +1322,10 @@ ol {
     box-shadow: 0 0 30px rgba(26, 79, 138, 0.3);
 }
 
+[data-theme="dark"] .team-carousel-card.is-center {
+    box-shadow: 0 0 30px rgba(74, 143, 212, 0.25);
+}
+
 /* Join */
 .join-cards {
     display: grid;
@@ -1424,10 +1417,6 @@ ol {
     border-top: 1px solid var(--border);
 }
 
-[data-theme="dark"] .team-carousel-card.is-center {
-    box-shadow: 0 0 30px rgba(74, 143, 212, 0.25);
-}
-
 .footer-inner {
     text-align: center;
 }
@@ -1446,6 +1435,52 @@ ol {
 }
 
 .site-footer a:hover {
+    color: var(--cik-red);
+}
+
+.footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.footer-socials a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.footer-socials svg {
+    flex-shrink: 0;
+}
+
+.footer-faculty {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.footer-faculty a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-faculty a:hover {
     color: var(--cik-red);
 }
 
@@ -1703,4 +1738,33 @@ ol {
 @keyframes heroBounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Back to top ──────────────────────────────────────────────────────────── */
+.back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--cik-blue);
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.35s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
