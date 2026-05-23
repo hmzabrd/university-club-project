@@ -11,7 +11,7 @@ export default function NotFound({ text, lang }) {
   return (
     <main className="page notfound-page">
       <div className="container narrow notfound-container">
-        <img src="/images/logo.jpg" alt="CIK" className="notfound-logo" />
+        <img src="/images/logo.jpg" alt={text.clubShort} className="notfound-logo" />
         <h1 className="notfound-code">404</h1>
         <p className="notfound-msg">
           {lang === 'fr' ? 'Page introuvable.' : lang === 'en' ? 'Page not found.' : 'الصفحة غير موجودة.'}

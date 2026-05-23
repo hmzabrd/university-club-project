@@ -3,8 +3,9 @@
    Sections: Hero, About, Mosaic, Quote, Partners, Team, Activities
    ============================================================ */
 
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { getSortedEvents, getAllGalleryImages } from "../data/events";
+import { getSortedEvents } from "../data/events";
 import { instagramHighlights } from "../data/highlights";
 import { links } from "../data/siteText";
 import EventCard from "../components/EventCard";
@@ -15,9 +16,63 @@ import { team } from "../data/team";
 const HAS_INTRO_VIDEO = false;
 const HERO_SRC = "/images/hero.jpg";
 
+const RANGE = 3;
+const GAP = 18;
+
 export default function Home({ lang, text }) {
+  const [teamIdx, setTeamIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [cardW, setCardW] = useState(window.innerWidth < 768 ? 160 : 240);
+  const pausedRef = useRef(false);
+  const lastAdvRef = useRef(0);
+  const rafRef = useRef(null);
+
+  const STEP = cardW + GAP;
+
+  pausedRef.current = paused;
+
+  useEffect(() => {
+    const onResize = () => setCardW(window.innerWidth < 768 ? 160 : 240);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
+    if (!paused) lastAdvRef.current = 0;
+  }, [paused]);
+
+  useEffect(() => {
+    function tick(now) {
+      if (!pausedRef.current) {
+        if (!lastAdvRef.current) lastAdvRef.current = now;
+        if (now - lastAdvRef.current >= 3000) {
+          setTeamIdx((prev) => (prev + 1) % team.length);
+          lastAdvRef.current = now;
+        }
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    }
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  function getVisibleTeam() {
+    const result = [];
+    for (let i = -RANGE; i <= RANGE; i++) {
+      const idx = ((teamIdx + i) % team.length + team.length) % team.length;
+      result.push({ ...team[idx], virtualIdx: teamIdx + i });
+    }
+    return result;
+  }
+
   const latest = getSortedEvents().slice(0, 6);
-  const mosaic = getAllGalleryImages().slice(0, 12);
+  const mosaic = useMemo(() =>
+    getSortedEvents()
+      .filter((e) => e.images.length >= 3)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 12)
+      .map((e, i) => ({ src: e.images[i % e.images.length], eventId: e.id })),
+  []);
   const h = text.home;
 
   return (
@@ -31,7 +86,7 @@ export default function Home({ lang, text }) {
         )}
         <div className="hero-overlay" />
         <div className="container hero-content">
-          <img src="/images/logo.jpg" alt="CIK" className="hero-logo" />
+          <img src="/images/logo.jpg" alt={text.clubShort} className="hero-logo" />
           <p className="hero-verse">{text.verse}</p>
           <h1>{text.clubFull}</h1>
           <p className="hero-tagline">{text.tagline}</p>
@@ -106,25 +161,43 @@ export default function Home({ lang, text }) {
         </div>
       </section></FadeIn>
 
-      {/* Team */}
+      {/* Team Carousel */}
       <FadeIn><section className="section">
         <div className="container">
           <div className="section-head">
             <h2 className="section-title">{h.teamTitle}</h2>
             <Link to="/team" className="link-more">{h.teamViewAll} →</Link>
           </div>
-          <div className="team-grid">
-            {team.slice(0, 4).map((member) => (
-              <article key={member.id} className="team-card">
-                <div className="team-card-photo">
-                  <img src={member.photo} alt={member.name} onError={fallbackImg} />
-                </div>
-                <div className="team-card-info">
-                  <h3>{member.name}</h3>
-                  <p>{text.team[member.roleKey]}</p>
-                </div>
-              </article>
-            ))}
+          <div
+            className="team-carousel"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            {getVisibleTeam().map((member) => {
+              const offset = member.virtualIdx - teamIdx;
+              const dist = Math.abs(offset);
+              const t = dist / RANGE;
+              return (
+                <article
+                  key={member.id}
+                  className={`team-carousel-card${dist === 0 ? ' is-center' : ''}`}
+                  style={{
+                    transform: `translateY(-50%) translateX(-50%) translateX(${offset * STEP}px) scale(${1 - t * 0.3})`,
+                    opacity: 0.2 + (1 - t) * 0.8,
+                    filter: `brightness(${1 - t * 0.5})`,
+                    zIndex: RANGE - dist + 1,
+                  }}
+                >
+                  <div className="team-card-photo">
+                    <img src={member.photo} alt={member.name} onError={fallbackImg} />
+                  </div>
+                  <div className="team-card-info">
+                    <h3>{member.name}</h3>
+                    <p>{text.team[member.roleKey]}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section></FadeIn>

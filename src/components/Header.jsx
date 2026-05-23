@@ -27,7 +27,7 @@ export default function Header({ lang, setLang, text, theme, setTheme }) {
     <header className="site-header">
       <div className="container header-inner">
         <NavLink to="/" className="brand" onClick={closeMenu}>
-          <img src="/images/logo.jpg" alt="CIK logo" className="brand-logo" />
+          <img src="/images/logo.jpg" alt={text.clubShort} className="brand-logo" />
           <span className="brand-text">
             <strong>{text.clubShort}</strong>
             <small>CIK — FSBM</small>

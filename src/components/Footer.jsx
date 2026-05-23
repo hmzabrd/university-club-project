@@ -18,8 +18,8 @@ export default function Footer({ text }) {
           <a href={links.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
             <span>💼</span> LinkedIn
           </a>
-          <a href={links.email} title="Email">
-            <span>✉️</span> clubibnkhaldoun2015@gmail.com
+          <a href={links.email} title={text.footer.email}>
+            <span>✉️</span> {links.email.replace('mailto:', '')}
           </a>
         </div>
 

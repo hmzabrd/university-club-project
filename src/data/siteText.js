@@ -13,7 +13,6 @@ export const siteText = {
     home: {
       introTitle: 'من نحن',
       introText: 'نادي إبن خلدون هو فضاء طلابي تطوعي غير ربحي، يعمل تحت إشراف إدارة كلية العلوم ابن مسيك، تأسس سنة 2015، ويهدف إلى تنمية القيم الإنسانية والاجتماعية والثقافية لدى الطلبة، من خلال تنظيم أنشطة ومبادرات هادفة تعزز روح التطوع، والإبداع، والعمل الجماعي، وخدمة المجتمع، بما يساهم في تكوين طالب فاعل وواعٍ بدوره داخل المجتمع.',
-      pillarsTitle: 'محاورنا',
       pillars: [
         { emoji: '🩺', title: 'القافلة الطبية', text: 'قوافل طبية وصحة مدرسية في مدارس النواصر وبوسكورة وأولاد عزوز.' },
         { emoji: '🤝', title: 'التضامن', text: 'كسوة العيد، زيارات دور الأطفال، إفطار رمضان، وحملات التبرع بالدم.' },
@@ -118,7 +117,6 @@ export const siteText = {
     home: {
       introTitle: 'Qui sommes-nous',
       introText: "Le Club Ibn Khaldoun est un espace étudiant bénévole et non lucratif, sous la supervision de la Faculté des Sciences Ben M'Sick, fondé en 2015. Il vise à développer les valeurs humaines, sociales et culturelles des étudiants à travers des activités et des initiatives qui renforcent l'esprit de bénévolat, de créativité, de travail en équipe et de service à la communauté.",
-      pillarsTitle: 'Nos piliers',
       pillars: [
         { emoji: '🩺', title: 'Caravane médicale', text: 'Caravanes et santé scolaire à Nouaceur, Bouskoura et Oulad Azzouz.' },
         { emoji: '🤝', title: 'Solidarité', text: 'Kiswa, visites foyers, iftar Ramadan, don du sang.' },
@@ -208,7 +206,7 @@ export const siteText = {
       whyItems: ["Actions sur le terrain", "Esprit d'équipe", 'Certificat de participation'],
       facultyNote: 'Club ouvert aux étudiants de la FSBM — UH2C Casablanca.',
     },
-    footer: { rights: 'Tous droits réservés', social: 'Réseaux', email: 'E-mail' },
+    footer: { rights: 'Tous droits réservés', social: 'Nos réseaux', email: 'E-mail' },
   },
 
   en: {
@@ -223,7 +221,6 @@ export const siteText = {
     home: {
       introTitle: 'Who we are',
       introText: "Club Ibn Khaldoun is a non-profit student volunteer space, under the supervision of the Faculty of Sciences Ben M'Sick, founded in 2015. It aims to develop human, social and cultural values among students through purposeful activities that strengthen volunteering, creativity, teamwork and community service.",
-      pillarsTitle: 'Our pillars',
       pillars: [
         { emoji: '🩺', title: 'Medical caravan', text: 'School health caravans in Nouaceur, Bouskoura and Oulad Azzouz.' },
         { emoji: '🤝', title: 'Solidarity', text: "Eid clothing, children's home visits, Ramadan iftar, blood drives." },
@@ -321,7 +318,7 @@ export const siteText = {
 export const links = {
   instagram: 'https://www.instagram.com/cik_fsbm/',
   linkedin:  'https://www.linkedin.com/company/club-ibn-khaldoun/',
-  facebook:  'https://www.facebook.com/share/1BWztaFWwZ/?mibextid=wwXIfr',
+  facebook:  'https://www.facebook.com/share/1BWztaFWwZ/',
   email:     'mailto:clubibnkhaldoun2015@gmail.com',
   form:      'https://forms.gle/YYC5rPsRwjqKSCrG9',
   facultyIg: 'https://www.instagram.com/fsbm_casablanca/',

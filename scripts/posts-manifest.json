@@ -76,7 +76,11 @@
       "fr": "Esprit du club — une famille",
       "en": "Club family spirit"
     },
-    "location": { "ar": "FSBM", "fr": "FSBM", "en": "FSBM" },
+    "location": {
+      "ar": "FSBM",
+      "fr": "FSBM",
+      "en": "FSBM"
+    },
     "description": {
       "ar": "جمعنا النادي كبداية عادية… فصرنا عائلة تتعلم من بعضها وتكبر معاً لنصنع الأثر ونمنح الفرح أينما ذهبنا.",
       "fr": "Un reel qui capture l'esprit de famille du club — parce que CIK, c'est avant tout des personnes qui grandissent ensemble.",
@@ -156,7 +160,7 @@
     "category": "solidarity",
     "date": "2026-03-20",
     "title": {
-      "ar": "بفضل الله ثم بفضل دعمكم وثقتكم، تمكن نادي ابن خلدون من توفير",
+      "ar": "كسوة العيد — 12 زيًا للأطفال",
       "fr": "Kiswa Aïd — 12 tenues offertes",
       "en": "Eid clothing drive — 12 outfits"
     },
@@ -178,7 +182,7 @@
     "category": "solidarity",
     "date": "2026-02-18",
     "title": {
-      "ar": "يتقدم أعضاء نادي إبن خلدون — كلية العلوم بن مسيك، بأحرّ الته",
+      "ar": "تهنئة بمناسبة السنة الجديدة",
       "fr": "Vœux de fin d'année",
       "en": "New year greetings"
     },
@@ -222,7 +226,7 @@
     "category": "solidarity",
     "date": "2025-11-22",
     "title": {
-      "ar": "احتفاءً بعيد الاستقلال (18 نونبر) وباليوم العالمي للطفل (20 ",
+      "ar": "زيارة تضامنية بمناسبة عيد الاستقلال",
       "fr": "Visite solidaire — foyer d'enfants",
       "en": "Solidarity visit — children's home"
     },
@@ -244,7 +248,7 @@
     "category": "solidarity",
     "date": "2025-11-10",
     "title": {
-      "ar": "في أجواء مميزة مليئة بالفرح والامتنان ، احتفل نادي ابن خلدون",
+      "ar": "الاحتفال بالذكرى العاشرة لتأسيس النادي",
       "fr": "10ème anniversaire — célébration",
       "en": "10th anniversary — celebration"
     },
@@ -266,7 +270,7 @@
     "category": "solidarity",
     "date": "2025-11-05",
     "title": {
-      "ar": "يسرّ نادي ابن خلدون أن يرحّب بجميع الطلبة والأساتذة والضيوف ",
+      "ar": "دعوة للاحتفال بالذكرى العاشرة",
       "fr": "10ème anniversaire — invitation",
       "en": "10th anniversary — invitation"
     },
@@ -288,7 +292,7 @@
     "category": "health",
     "date": "2025-05-18",
     "title": {
-      "ar": "في إطار *الأسبوع الجامعي لريادة الأعمال وقابلية التشغيل*، وض",
+      "ar": "الأسبوع الجامعي لريادة الأعمال وقابلية التشغيل",
       "fr": "Semaine de l'entrepreneuriat",
       "en": "Entrepreneurship week"
     },
@@ -310,7 +314,7 @@
     "category": "health",
     "date": "2025-05-02",
     "title": {
-      "ar": "في إطار إشعاعه المتواصل داخليا وخارجيا وحرصه على ترسيخ ثقافة",
+      "ar": "ندوة وورشات حول ريادة الأعمال",
       "fr": "Conférence et ateliers — entrepreneuriat",
       "en": "Conference and workshops — entrepreneurship"
     },
@@ -354,7 +358,7 @@
     "category": "culture",
     "date": "2025-03-31",
     "title": {
-      "ar": "يتقدّم نادي ابن خلدون بأحرّ التهاني وأطيب التمنيات لجميع متا",
+      "ar": "تهنئة بمناسبة عيد الفطر",
       "fr": "Vœux de l'Aïd Al-Fitr",
       "en": "Eid Al-Fitr greetings"
     },
@@ -376,7 +380,7 @@
     "category": "solidarity",
     "date": "2025-03-31",
     "title": {
-      "ar": "لحظات استثنائية عشناها مع الأطفال في ليلة 27 من رمضان، حيث ا",
+      "ar": "ليلة 27 من رمضان مع الأطفال",
       "fr": "Nuit de Ramadan avec les enfants",
       "en": "Ramadan night with children"
     },
@@ -442,7 +446,7 @@
     "category": "campus",
     "date": "2025-02-17",
     "title": {
-      "ar": "نظم نادي ابن خلدون للأعمال الاجتماعية والثقافية، ولأول مرة ف",
+      "ar": "أول بطولة للألعاب الإلكترونية في الكلية",
       "fr": "Premier tournoi e-sport à la FSBM",
       "en": "First e-sport tournament at FSBM"
     },
@@ -464,7 +468,7 @@
     "category": "culture",
     "date": "2025-02-09",
     "title": {
-      "ar": "في إطار الأسبوع الجامعي للرياضة، ووفقًا للرؤية التي تتبناها ",
+      "ar": "الأسبوع الجامعي للرياضة",
       "fr": "Semaine universitaire du sport",
       "en": "University sports week"
     },
@@ -486,7 +490,7 @@
     "category": "campus",
     "date": "2025-01-22",
     "title": {
-      "ar": "تتشرف كلية العلوم ابن مسيك بتنظيم حفل تكريمي للأساتذة المتقا",
+      "ar": "حفل تكريمي للأساتذة المتقاعدين",
       "fr": "Cérémonie d'hommage aux professeurs retraités",
       "en": "Tribute ceremony for retiring professors"
     },
@@ -508,7 +512,7 @@
     "category": "solidarity",
     "date": "2024-11-17",
     "title": {
-      "ar": "في لفتة إنسانية تجسد أسمى معاني التضامن والعطاء، وفي إطار أن",
+      "ar": "زيارة تضامنية إلى مؤسسة الرعاية الاجتماعية",
       "fr": "Visite solidaire — foyer d'enfants",
       "en": "Solidarity visit — children's home"
     },
@@ -530,7 +534,7 @@
     "category": "campus",
     "date": "2024-11-08",
     "title": {
-      "ar": "الله، الوطن، الملك – كلماتٌ تَنبُض في قلب كل مغربي، تجسد اعت",
+      "ar": "الله، الوطن، الملك — ذكرى المسيرة الخضراء",
       "fr": "Fête nationale du Maroc",
       "en": "Morocco National Day"
     },
@@ -574,7 +578,7 @@
     "category": "campus",
     "date": "2024-10-12",
     "title": {
-      "ar": "قام أعضاء نادي إبن خلدون للأعمال الإجتماعية و الثقافية بتلبي",
+      "ar": "المشاركة في ملتقى الأندية الطلابية",
       "fr": "Forum des clubs étudiants — Université Hassan II",
       "en": "Student clubs forum — Hassan II University"
     },
@@ -596,7 +600,7 @@
     "category": "culture",
     "date": "2024-10-07",
     "title": {
-      "ar": "It's nice to meet you guys✨",
+      "ar": "يسعدنا لقاؤكم ✨",
       "fr": "Rencontre du nouveau bureau",
       "en": "New bureau introduction"
     },
@@ -606,7 +610,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "It's nice to meet you guys✨ .. #picnic #active #activitemanuelle #انشطة #photography",
+      "ar": "أول لقاء تعارفي للمكتب الجديد في نزهة بسيطة — فرصة للتعارف وانطلاق الموسم الجديد بحماس.",
       "fr": "Première rencontre conviviale du nouveau bureau sous forme de pique-nique — l'occasion de faire connaissance et de lancer la nouvelle saison avec enthousiasme.",
       "en": "First informal gathering of the new bureau over a picnic — a chance to get to know each other and kick off the new season with energy."
     },
@@ -618,7 +622,7 @@
     "category": "culture",
     "date": "2024-10-06",
     "title": {
-      "ar": "يسعدنا ويثلج صدورنا حضوركم اليوم معنا في هذه النزهة البسيطة ",
+      "ar": "نزهة بمناسبة الذكرى العاشرة",
       "fr": "10ème anniversaire — sortie d'accueil",
       "en": "10th anniversary — welcome outing"
     },
@@ -640,7 +644,7 @@
     "category": "culture",
     "date": "2024-09-22",
     "title": {
-      "ar": "نظم نادي ابن خلدون مسابقة حماسية داخل الكلية، مستوحاة من عال",
+      "ar": "مسابقة Game of Thrones داخل الكلية",
       "fr": "Compétition Game of Thrones — campus",
       "en": "Game of Thrones campus challenge"
     },
@@ -684,7 +688,7 @@
     "category": "campus",
     "date": "2024-07-29",
     "title": {
-      "ar": "نظمت جامعة الحسن الثاني بالدار البيضاء يوم الخميس 25 يوليوز ",
+      "ar": "الملتقى السنوي للتميز في الأنشطة الطلابية",
       "fr": "Forum annuel d'excellence — Université Hassan II",
       "en": "Annual excellence forum — Hassan II University"
     },
@@ -750,7 +754,7 @@
     "category": "solidarity",
     "date": "2024-06-16",
     "title": {
-      "ar": "يسر نادي إبن خلدون أن يتقدم بأحر التهاني وأطيب التبريكات إلى",
+      "ar": "تهنئة بمناسبة عيد الأضحى",
       "fr": "Vœux de l'Aïd Al-Adha",
       "en": "Eid Al-Adha greetings"
     },
@@ -772,7 +776,7 @@
     "category": "culture",
     "date": "2024-05-10",
     "title": {
-      "ar": "أبرز اللحظات والصور التي إلتقطت يوم أمس خلال لقاء التبادل ال",
+      "ar": "لقاء التبادل الثقافي المغربي-الصيني",
       "fr": "Échange culturel Maroc–Chine",
       "en": "Morocco–China cultural exchange"
     },
@@ -794,7 +798,7 @@
     "category": "culture",
     "date": "2024-04-29",
     "title": {
-      "ar": "Capturing moments that matter with cik ✨",
+      "ar": "لحظات مميزة مع cik ✨",
       "fr": "Moments du club",
       "en": "Club memories"
     },
@@ -804,7 +808,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Capturing moments that matter with cik ✨ @souhail_yns  … #pirates #treasure #أنشطة_ترفيهية #island#holi",
+      "ar": "لحظات من يوم مليء بالأنشطة الترفيهية والإبداعية نظمها النادي — أجواء من الألفة والمرح جمعت الأعضاء.",
       "fr": "Photos souvenir d'une journée d'activités festives et créatives organisée par CIK — des moments de convivialité et de bonne humeur partagés entre membres.",
       "en": "Photos from a day of fun and creative activities organized by CIK — moments of camaraderie and good vibes shared among club members."
     },
@@ -838,7 +842,7 @@
     "category": "culture",
     "date": "2024-04-20",
     "title": {
-      "ar": "بعض الصور لقارعي الطبول من مؤسسة ادماج مع أعضاء نادي ابن خلد",
+      "ar": "بعض الصور لقارعي الطبول مع مؤسسة إدماج",
       "fr": "Partenariat avec la Fondation IDMAJ",
       "en": "Partnership with IDMAJ Foundation"
     },
@@ -860,7 +864,7 @@
     "category": "campus",
     "date": "2024-04-20",
     "title": {
-      "ar": "في ظل إنفتاح نادي ابن خلدون للأنشطة الإجتماعية والثقافية على",
+      "ar": "أول تعاون مع مؤسسة إدماج",
       "fr": "Première collaboration avec IDMAJ",
       "en": "First collaboration with IDMAJ"
     },
@@ -882,7 +886,7 @@
     "category": "culture",
     "date": "2024-03-30",
     "title": {
-      "ar": "Some of our students projects",
+      "ar": "مشاريع طلابنا",
       "fr": "Projets étudiants — exposition",
       "en": "Student projects showcase"
     },
@@ -892,7 +896,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Some of our students projects",
+      "ar": "عرض لمشاريع الطلاب التي أنجزها أعضاء النادي — نافذة على المواهب الإبداعية والروح الريادية لشباب الكلية.",
       "fr": "Présentation de projets étudiants réalisés par les membres du club — une vitrine des talents créatifs et des initiatives portées par la jeunesse de la FSBM.",
       "en": "A showcase of student projects created by club members — highlighting the creative talents and entrepreneurial spirit of FSBM's youth."
     },
@@ -904,7 +908,7 @@
     "category": "culture",
     "date": "2024-03-26",
     "title": {
-      "ar": "Team girls✨️",
+      "ar": "فريق الفتيات ✨️",
       "fr": "Journée internationale des femmes — Team girls",
       "en": "International Women's Day — Team girls"
     },
@@ -914,7 +918,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Team girls✨️ #8_mars_journée_mondial_de_la_femme #girls",
+      "ar": "بمناسبة اليوم العالمي للمرأة، نادي ابن خلدون يحتفل بعضوات النادي وإسهاماتهن الأساسية في الحياة الاجتماعية والثقافية.",
       "fr": "À l'occasion de la journée internationale des femmes, CIK célèbre les membres féminines du club et leur contribution essentielle à la vie sociale et culturelle.",
       "en": "On International Women's Day, CIK celebrates its female members and their essential contribution to the club's social and cultural life."
     },
@@ -926,7 +930,7 @@
     "category": "culture",
     "date": "2024-03-07",
     "title": {
-      "ar": "Be in cik means having fun every time✨️",
+      "ar": "المرح مع cik ✨️",
       "fr": "L'esprit CIK",
       "en": "The CIK spirit"
     },
@@ -936,7 +940,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Be in cik means having fun every time✨️",
+      "ar": "الانضمام إلى cik يعني مشاركة لحظات جميلة وبناء ذكريات. النادي يرحب بكم طوال العام — انضموا إلينا!",
       "fr": "Faire partie de CIK, c'est avant tout partager de bons moments et créer des souvenirs. Le club vous accueille toute l'année — rejoignez-nous !",
       "en": "Being part of CIK means sharing great moments and making memories. The club welcomes you throughout the year — come join us!"
     },
@@ -948,7 +952,7 @@
     "category": "culture",
     "date": "2024-02-24",
     "title": {
-      "ar": "Having some good times toghether❤️,and remember you can alwa",
+      "ar": "أوقات جميلة معًا ❤️",
       "fr": "Moments entre membres",
       "en": "Moments between members"
     },
@@ -958,7 +962,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Having some good times toghether❤️,and remember you can always join us❤️❤️",
+      "ar": "ذكريات جميلة قضيناها معًا — cik عائلة واحدة، والباب مفتوح دائمًا لكل من يريد الانضمام إلى المغامرة.",
       "fr": "Retour sur de bons moments passés ensemble — CIK, c'est une famille, et la porte est toujours ouverte pour ceux qui veulent rejoindre l'aventure.",
       "en": "Looking back on great times spent together — CIK is a family, and the door is always open for anyone who wants to join the adventure."
     },
@@ -970,7 +974,7 @@
     "category": "culture",
     "date": "2024-02-16",
     "title": {
-      "ar": "Making some memories,",
+      "ar": "نصنع الذكريات",
       "fr": "Souvenirs du club",
       "en": "Club memories"
     },
@@ -980,7 +984,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Making some memories,  One team  one heart ❤️",
+      "ar": "لحظات خالدة تجسد روح cik — فريق متحد، قلب واحد، وشغف مشترك للعمل الاجتماعي والثقافي.",
       "fr": "Quelques instants capturés qui résument l'esprit de CIK : une équipe soudée, un cœur uni, et une passion commune pour l'action sociale et culturelle.",
       "en": "Captured moments that sum up the CIK spirit — a united team, one heart, and a shared passion for social and cultural action."
     },
@@ -992,7 +996,7 @@
     "category": "culture",
     "date": "2024-01-30",
     "title": {
-      "ar": "Some memories last forever us ours",
+      "ar": "بعض الذكريات تبقى للأبد",
       "fr": "Certains souvenirs restent pour toujours",
       "en": "Some memories last forever"
     },
@@ -1002,7 +1006,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "Some memories last forever us ours There's more in the future if you want join us❤️❤️",
+      "ar": "بعض الذكريات تبقى للأبد. هذه الصور تذكرنا لماذا cik أكثر من مجرد ناد — إنها عائلة تنمو وتتطور معًا.",
       "fr": "Certains souvenirs restent pour toujours. Ces photos rappellent pourquoi CIK est bien plus qu'un club — c'est une famille qui grandit et évolue ensemble.",
       "en": "Some memories last forever. These photos are a reminder of why CIK is more than a club — it's a family that grows and evolves together."
     },
@@ -1014,7 +1018,7 @@
     "category": "culture",
     "date": "2024-01-30",
     "title": {
-      "ar": "A recap on our caravan favorites memories✨️",
+      "ar": "أفضل ذكريات قوافلنا ✨️",
       "fr": "Meilleurs souvenirs de caravane",
       "en": "Best caravan memories"
     },
@@ -1024,7 +1028,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "A recap on our caravan favorites memories✨️ There's more in the future if you want join us❤️❤️",
+      "ar": "عودة بالذاكرة إلى أجمل لحظات قوافلنا الطبية — لحظات من العطاء والإنسانية محفورة في ذاكرة النادي.",
       "fr": "Un retour en images sur les meilleurs souvenirs de nos caravanes médicales — des moments de générosité et d'humanité gravés dans la mémoire du club.",
       "en": "A look back at the best memories from our medical caravans — moments of generosity and humanity forever etched in the club's story."
     },
@@ -1036,7 +1040,7 @@
     "category": "culture",
     "date": "2023-12-20",
     "title": {
-      "ar": "One team, one heart ❤️",
+      "ar": "فريق واحد، قلب واحد ❤️",
       "fr": "Une équipe, un cœur",
       "en": "One team, one heart"
     },
@@ -1046,7 +1050,7 @@
       "en": "Casablanca"
     },
     "description": {
-      "ar": "One team, one heart ❤️",
+      "ar": "فريق واحد، قلب واحد — الشعار الذي يجسد روح cik منذ البداية. روابط قوية بنيت على قيم مشتركة وطموح جماعي.",
       "fr": "Une équipe, un cœur — la devise qui résume l'esprit de CIK depuis ses débuts. Des liens forts forgés par des valeurs communes et une ambition collective.",
       "en": "One team, one heart — the motto that captures CIK's spirit from the very beginning. Strong bonds built on shared values and a common drive."
     },

@@ -12,7 +12,7 @@
    5.   Header and navigation (.site-header, .main-nav)
    6.   Buttons (.btn, .btn-primary, .btn-outline)
    7.   Hero section (big banner at top of homepage)
-   8.   Home page sections (pillars, impact, mosaic, partners)
+    8.   Home page sections (pillars, mosaic, partners)
    9.   Events grid and event cards
    10.  Gallery page
    11.  Event detail page (single activity view)
@@ -572,34 +572,6 @@ ol {
     font-size: 0.95rem;
 }
 
-/* Impact */
-.impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.impact-card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    border-inline-start: 4px solid var(--cik-red);
-    box-shadow: var(--shadow);
-}
-
-.impact-card strong {
-    display: block;
-    color: var(--cik-blue);
-    font-size: 1.05rem;
-    margin-bottom: 0.35rem;
-}
-
-.impact-card p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
 /* Home mosaic */
 .home-mosaic {
     display: grid;
@@ -948,6 +920,12 @@ ol {
 .page {
     padding-block: 2.5rem 3.5rem;
     min-height: 50vh;
+    animation: pageFadeIn 0.3s ease;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .page-title {
@@ -1319,6 +1297,33 @@ ol {
     font-weight: 600;
 }
 
+/* Team Carousel (homepage) */
+.team-carousel {
+    position: relative;
+    overflow: hidden;
+    height: 430px;
+}
+
+.team-carousel-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 240px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition:
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.5s ease,
+        filter 0.5s ease;
+}
+
+.team-carousel-card.is-center {
+    box-shadow: 0 0 30px rgba(26, 79, 138, 0.3);
+}
+
 /* Join */
 .join-cards {
     display: grid;
@@ -1408,6 +1413,10 @@ ol {
 [data-theme="dark"] .site-footer {
     background: #081018;
     border-top: 1px solid var(--border);
+}
+
+[data-theme="dark"] .team-carousel-card.is-center {
+    box-shadow: 0 0 30px rgba(74, 143, 212, 0.25);
 }
 
 .footer-inner {
@@ -1546,11 +1555,18 @@ ol {
     }
 
     .pillars-grid,
-    .impact-grid,
     .events-grid,
     .team-grid,
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .team-carousel {
+        height: 320px;
+    }
+
+    .team-carousel-card {
+        width: 160px;
     }
 
     .home-mosaic {
@@ -1622,7 +1638,7 @@ ol {
 }
 
 .highlight-chip:hover {
-    background: var(--blue);
+    background: var(--cik-blue);
     color: white;
     transform: translateY(-2px);
 }

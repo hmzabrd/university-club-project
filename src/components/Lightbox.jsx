@@ -1,6 +1,7 @@
 /* Fullscreen image overlay — click or Escape to close */
 
 import { useEffect } from "react";
+import { fallbackImg } from "../utils/lang";
 
 export default function Lightbox({ src, alt, onClose }) {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function Lightbox({ src, alt, onClose }) {
 
   return (
     <div className="lightbox-overlay" onClick={onClose}>
-      <img src={src} alt={alt} className="lightbox-img" />
+      <img src={src} alt={alt} className="lightbox-img" onError={fallbackImg} />
     </div>
   );
 }
