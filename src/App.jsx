@@ -1,4 +1,4 @@
-/* App — root component: language, theme, routing */
+/* App — root component: language, theme, routing, scroll indicators */
 
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
@@ -17,6 +17,16 @@ import NotFound from "./pages/NotFound";
 import BackToTop from "./components/BackToTop";
 import "./App.css";
 
+function getInitialLang() {
+  const saved = localStorage.getItem("cik-lang");
+  if (saved) return saved;
+  const nav = navigator.language || navigator.userLanguage || "";
+  if (nav.startsWith("ar")) return "ar";
+  if (nav.startsWith("fr")) return "fr";
+  if (nav.startsWith("en")) return "en";
+  return "ar";
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -25,8 +35,50 @@ function ScrollToTop() {
   return null;
 }
 
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    function update() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  return (
+    <div className="reading-progress">
+      <div className="reading-progress-fill" style={{ width: `${progress}%` }} />
+    </div>
+  );
+}
+
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    function update() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  return (
+    <div className="scroll-progress">
+      <div className="scroll-progress-fill" style={{ height: `${progress}%` }} />
+    </div>
+  );
+}
+
 export default function App() {
-  const [lang, setLang] = useState("ar");
+  const [lang, setLang] = useState(getInitialLang);
   const [theme, setTheme] = useState(
     () => localStorage.getItem("cik-theme") || "light",
   );
@@ -38,12 +90,15 @@ export default function App() {
     document.documentElement.setAttribute("data-theme", theme);
     document.body.className = lang === "ar" ? "lang-ar" : "lang-latin";
     localStorage.setItem("cik-theme", theme);
+    localStorage.setItem("cik-lang", lang);
   }, [lang, theme]);
 
   const pageProps = { lang, text };
 
   return (
     <BrowserRouter>
+      <ReadingProgress />
+      <ScrollProgress />
       <ScrollToTop />
       <Header lang={lang} setLang={setLang} text={text} theme={theme} setTheme={setTheme} />
       <BackToTop />

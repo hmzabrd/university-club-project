@@ -56,6 +56,27 @@ export default function Home({ lang, text }) {
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
+  function HeroScrollIndicator() {
+    const [show, setShow] = useState(true);
+
+    useEffect(() => {
+      function update() {
+        const hero = document.querySelector(".hero");
+        if (!hero) return;
+        setShow(hero.getBoundingClientRect().bottom > 0);
+      }
+      window.addEventListener("scroll", update, { passive: true });
+      update();
+      return () => window.removeEventListener("scroll", update);
+    }, []);
+
+    return (
+      <div className={`hero-scroll-indicator ${show ? "" : "fade"}`}>
+        ↓
+      </div>
+    );
+  }
+
   function getVisibleTeam() {
     const result = [];
     for (let i = -RANGE; i <= RANGE; i++) {
@@ -95,6 +116,7 @@ export default function Home({ lang, text }) {
             <Link to="/activities" className="btn btn-primary">{text.hero.ctaActivities}</Link>
             <Link to="/join" className="btn btn-light">{text.hero.ctaJoin}</Link>
           </div>
+          <HeroScrollIndicator />
         </div>
       </section>
 

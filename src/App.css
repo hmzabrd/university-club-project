@@ -112,6 +112,15 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
 }
 
 body {
@@ -1609,70 +1618,6 @@ ol {
     }
 }
 
-/* ── Footer socials ─────────────────────────────────────────────────────── */
-.footer-socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-    justify-content: center;
-    margin-block: 0.75rem;
-}
-
-.footer-socials a {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9rem;
-}
-
-.footer-faculty {
-    margin-block: 0.5rem;
-    font-size: 0.85rem;
-    opacity: 0.7;
-}
-
-/* ── Highlight chips as links ────────────────────────────────────────────── */
-.highlight-chip {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.highlight-chip:hover {
-    background: var(--cik-blue);
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* ── Back to top ──────────────────────────────────────────────────────────── */
-.back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: none;
-    background: var(--cik-blue);
-    color: #fff;
-    font-size: 1.4rem;
-    cursor: pointer;
-    z-index: 999;
-    opacity: 0;
-    animation: fadeIn 0.3s forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.25s, box-shadow 0.25s;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-}
-.back-to-top:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-}
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
 /* ── Fade in on scroll ────────────────────────────────────────────────────── */
 .fade-in {
     opacity: 0;
@@ -1700,4 +1645,62 @@ ol {
     max-height: 90vh;
     object-fit: contain;
     border-radius: 4px;
+}
+
+/* ── Reading progress bar ──────────────────────────────────────────────────── */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 10000;
+    background: transparent;
+}
+
+.reading-progress-fill {
+    height: 100%;
+    background: var(--cik-blue);
+    transition: width 0.1s linear;
+}
+
+/* ── Scroll progress (side) ────────────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100vh;
+    z-index: 9998;
+    background: var(--border);
+    opacity: 0.4;
+}
+
+.scroll-progress-fill {
+    width: 100%;
+    background: var(--cik-blue);
+    transition: height 0.1s linear;
+}
+
+/* ── Hero scroll indicator ─────────────────────────────────────────────────── */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.6rem;
+    opacity: 0.8;
+    animation: heroBounce 2s ease-in-out infinite;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.hero-scroll-indicator.fade {
+    opacity: 0;
+}
+
+@keyframes heroBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
 }
