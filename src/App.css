@@ -1717,29 +1717,6 @@ ol {
     transition: height 0.1s linear;
 }
 
-/* ── Hero scroll indicator ─────────────────────────────────────────────────── */
-.hero-scroll-indicator {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 1.6rem;
-    opacity: 0.8;
-    animation: heroBounce 2s ease-in-out infinite;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-.hero-scroll-indicator.fade {
-    opacity: 0;
-}
-
-@keyframes heroBounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-}
-
 /* ── Back to top ──────────────────────────────────────────────────────────── */
 .back-to-top {
     position: fixed;
