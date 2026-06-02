@@ -29,6 +29,8 @@ export default function Home({ lang, text }) {
 
   const STEP = cardW + GAP;
 
+  useEffect(() => { document.title = `${text.nav.home} | CIK`; }, [text.nav.home]);
+
   pausedRef.current = paused;
 
   useEffect(() => {
@@ -136,7 +138,7 @@ export default function Home({ lang, text }) {
           <h2 className="section-title">{h.highlightsTitle}</h2>
           <div className="highlight-chips">
             {instagramHighlights.map((item) => (
-              <a key={item.name} href={links.instagram} target="_blank" rel="noreferrer" className="highlight-chip">
+              <a key={item.name} href={item.instagram || links.instagram} target="_blank" rel="noreferrer" className="highlight-chip">
                 <span className="chip-emoji">{item.emoji}</span>
                 {item.name}
               </a>
@@ -189,7 +191,7 @@ export default function Home({ lang, text }) {
                   }}
                 >
                   <div className="team-card-photo">
-                    <img src={member.photo} alt={member.name} onError={fallbackImg} />
+                    <img src={member.photo} alt={member.name} loading="lazy" onError={fallbackImg} />
                   </div>
                   <div className="team-card-info">
                     <h3>{member.name}</h3>

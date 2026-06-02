@@ -42,7 +42,7 @@ export default function EventDetail({ lang, text }) {
         <Link to="/activities" className="back-link">← {labels.back}</Link>
 
         <header className="event-detail-header">
-          {event.isVideo && <span className="event-badge video-badge">▶ Vidéo</span>}
+          {event.isVideo && <span className="event-badge video-badge">{labels.videoLabel}</span>}
           {category && !event.isVideo && <span className="event-badge">{t(category.label, lang)}</span>}
           <span className="event-date">{event.date}</span>
           <h1>{t(event.title, lang)}</h1>

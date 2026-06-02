@@ -65,6 +65,7 @@ export const siteText = {
       eventNav: 'تنقل بين الأنشطة',
       watchVideo: 'شاهد على إنستغرام ↗',
       videoMessage: 'هذا المنشور فيديو — شاهده على إنستغرام',
+      videoLabel: '▶ فيديو',
       openInstagram: 'فتح على إنستغرام',
     },
     team: {
@@ -169,6 +170,7 @@ export const siteText = {
       eventNav: 'Navigation activités',
       watchVideo: 'Voir la vidéo ↗',
       videoMessage: 'Ce post est une vidéo — regardez-le sur Instagram',
+      videoLabel: '▶ Vidéo',
       openInstagram: 'Ouvrir sur Instagram',
     },
     team: {
@@ -273,6 +275,7 @@ export const siteText = {
       eventNav: 'Activity navigation',
       watchVideo: 'Watch on Instagram ↗',
       videoMessage: 'This post is a video — watch it on Instagram',
+      videoLabel: '▶ Video',
       openInstagram: 'Open on Instagram',
     },
     team: {

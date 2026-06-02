@@ -13,13 +13,21 @@ export default function EventCard({ event, lang, linkLabel }) {
     <article className="event-card">
       <Link to={`/activities/${event.id}`} className="event-card-link">
         <div className="event-card-image">
-          <img
-            src={cover}
-            alt={t(event.title, lang)}
-            loading="lazy"
-            onError={fallbackImg}
-          />
-          <span className="photo-count">📷 {photoCount}</span>
+          {event.isVideo ? (
+            <div className="video-placeholder">
+              <div className="video-placeholder-inner">
+                <span className="video-play-icon">▶</span>
+              </div>
+            </div>
+          ) : (
+            <img
+              src={cover}
+              alt={t(event.title, lang)}
+              loading="lazy"
+              onError={fallbackImg}
+            />
+          )}
+          <span className="photo-count">{event.isVideo ? '▶' : '📷'} {photoCount}</span>
           {category && (
             <span className="card-cat">{t(category.label, lang)}</span>
           )}

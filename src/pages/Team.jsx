@@ -20,7 +20,7 @@ export default function Team({ text }) {
           {team.map((member) => (
             <article key={member.id} className="team-card">
               <div className="team-card-photo">
-                <img src={member.photo} alt={member.name} onError={fallbackImg} />
+                <img src={member.photo} alt={member.name} loading="lazy" onError={fallbackImg} />
               </div>
               <div className="team-card-info">
                 <h3>{member.name}</h3>
