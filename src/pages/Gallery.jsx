@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getAllGalleryImages } from "../data/events";
 import { categories } from "../data/categories";
 import { t, fallbackImg } from "../utils/lang";
+import Lightbox from "../components/Lightbox";
 
 const PAGE_SIZE = 30;
 
@@ -15,10 +15,12 @@ export default function Gallery({ lang, text }) {
 
   const [filter, setFilter] = useState("all");
   const [showing, setShowing] = useState(PAGE_SIZE);
+  const [lightboxIdx, setLightboxIdx] = useState(null);
 
   function changeFilter(id) {
     setFilter(id);
     setShowing(PAGE_SIZE);
+    setLightboxIdx(null);
   }
 
   const allPhotos = getAllGalleryImages();
@@ -49,10 +51,10 @@ export default function Gallery({ lang, text }) {
 
         <div className="gallery-grid">
           {visible.map((photo, index) => (
-            <Link key={`${photo.eventId}-${index}`} to={`/activities/${photo.eventId}`} className="gallery-item">
+            <div key={`${photo.eventId}-${index}`} className="gallery-item" onClick={() => setLightboxIdx(index)}>
               <img src={photo.src} alt={t(photo.caption, lang)} loading="lazy" onError={fallbackImg} />
               <span>{t(photo.caption, lang)}</span>
-            </Link>
+            </div>
           ))}
         </div>
 
@@ -68,6 +70,15 @@ export default function Gallery({ lang, text }) {
           </div>
         )}
       </div>
+      {lightboxIdx !== null && (
+        <Lightbox
+          src={filtered[lightboxIdx].src}
+          alt={t(filtered[lightboxIdx].caption, lang)}
+          onClose={() => setLightboxIdx(null)}
+          onPrev={lightboxIdx > 0 ? () => setLightboxIdx(lightboxIdx - 1) : null}
+          onNext={lightboxIdx < filtered.length - 1 ? () => setLightboxIdx(lightboxIdx + 1) : null}
+        />
+      )}
     </main>
   );
 }
