@@ -106,7 +106,7 @@ export default function Home({ lang, text }) {
           <p className="section-text">{h.introText}</p>
           <div className="pillars-grid">
             {h.pillars.map((p) => (
-              <article key={p.title} className="pillar-card">
+              <article key={p.emoji} className="pillar-card">
                 <span className="pillar-emoji" aria-hidden="true">{p.emoji}</span>
                 <h3>{p.title}</h3>
                 <p>{p.text}</p>

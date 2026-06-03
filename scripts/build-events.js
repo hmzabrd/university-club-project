@@ -14,16 +14,22 @@ const manifest = JSON.parse(
 
 const events = manifest.map((post) => {
   const dir = join(root, "public", "images", "events", post.id);
-  let images = [`/images/events/${post.id}/01.jpg`];
+  let images = [];
 
-  if (existsSync(dir)) {
+  if (post.isVideo || post.images === 0) {
+    images = [];
+  } else if (existsSync(dir)) {
     const imageFiles = readdirSync(dir)
       .filter((f) => /\.(jpg|jpeg|webp)$/i.test(f))
       .sort();
 
     if (imageFiles.length > 0) {
       images = imageFiles.map((f) => `/images/events/${post.id}/${f}`);
+    } else {
+      images = [`/images/events/${post.id}/01.jpg`];
     }
+  } else {
+    images = [`/images/events/${post.id}/01.jpg`];
   }
 
   return {
