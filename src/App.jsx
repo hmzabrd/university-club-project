@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { smoothScrollToTop } from "./utils/lang";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { siteText } from "./data/siteText";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ReadingProgress from "./components/ReadingProgress";
+import ScrollProgress from "./components/ScrollProgress";
+import ScrollToTop from "./components/ScrollToTop";
+import BackToTop from "./components/BackToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Activities from "./pages/Activities";
@@ -13,7 +16,6 @@ import Team from "./pages/Team";
 import Gallery from "./pages/Gallery";
 import Join from "./pages/Join";
 import NotFound from "./pages/NotFound";
-import BackToTop from "./components/BackToTop";
 import "./App.css";
 
 function getInitialLang() {
@@ -24,50 +26,6 @@ function getInitialLang() {
   if (nav.startsWith("fr")) return "fr";
   if (nav.startsWith("en")) return "en";
   return "ar";
-}
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { smoothScrollToTop(); }, [pathname]);
-  return null;
-}
-
-  function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    function update() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
-    }
-    window.addEventListener("scroll", update, { passive: true });
-    update();
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-  return (
-    <div className="reading-progress">
-      <div className="reading-progress-fill" style={{ width: `${progress}%` }} />
-    </div>
-  );
-}
-
-  function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    function update() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
-    }
-    window.addEventListener("scroll", update, { passive: true });
-    update();
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-  return (
-    <div className="scroll-progress">
-      <div className="scroll-progress-fill" style={{ height: `${progress}%` }} />
-    </div>
-  );
 }
 
 export default function App() {

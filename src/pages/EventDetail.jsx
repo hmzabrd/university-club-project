@@ -41,7 +41,7 @@ export default function EventDetail({ lang, text }) {
 
         <header className="event-detail-header">
           {event.isVideo && <span className="event-badge video-badge">{labels.videoLabel}</span>}
-          {category && !event.isVideo && <span className="event-badge">{t(category.label, lang)}</span>}
+          {category?.color && !event.isVideo && <span className="event-badge" style={{ color: category.color, borderColor: category.color }}>{t(category.label, lang)}</span>}
           <span className="event-date">{event.date}</span>
           <h1>{t(event.title, lang)}</h1>
           <p className="event-location">📍 {t(event.location, lang)}</p>

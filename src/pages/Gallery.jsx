@@ -41,6 +41,7 @@ export default function Gallery({ lang, text }) {
               type="button"
               className={filter === cat.id ? "active" : ""}
               onClick={() => changeFilter(cat.id)}
+              style={cat.color ? { '--cat-color': cat.color } : {}}
             >
               {t(cat.label, lang)}
             </button>

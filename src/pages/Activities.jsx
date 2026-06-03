@@ -29,6 +29,7 @@ export default function Activities({ lang, text }) {
               type="button"
               className={filter === cat.id ? "active" : ""}
               onClick={() => setFilter(cat.id)}
+              style={cat.color ? { '--cat-color': cat.color } : {}}
             >
               {t(cat.label, lang)}
             </button>

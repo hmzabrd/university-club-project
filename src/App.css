@@ -820,8 +820,8 @@ ol {
 }
 
 .filters button.active {
-    background: var(--cik-blue);
-    border-color: var(--cik-blue);
+    background: var(--cat-color, var(--cik-blue));
+    border-color: var(--cat-color, var(--cik-blue));
     color: #fff;
 }
 

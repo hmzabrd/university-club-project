@@ -26,8 +26,8 @@ export default function EventCard({ event, lang, linkLabel }) {
             />
           )}
           <span className="photo-count">{event.isVideo ? '▶' : '📷'} {photoCount}</span>
-          {category && (
-            <span className="card-cat">{t(category.label, lang)}</span>
+          {category?.color && (
+            <span className="card-cat" style={{ background: category.color }}>{t(category.label, lang)}</span>
           )}
         </div>
         <div className="event-card-body">
