@@ -10,7 +10,7 @@ export default function EventDetail({ lang, text }) {
   const event = getEventById(id);
   const labels = text.activities;
   const { prev, next } = getAdjacentEvents(id);
-  const [lightboxSrc, setLightboxSrc] = useState(null);
+  const [lightboxIdx, setLightboxIdx] = useState(null);
 
   useEffect(() => {
     document.title = event ? `${t(event.title, lang)} | CIK` : "404 | CIK";
@@ -61,7 +61,7 @@ export default function EventDetail({ lang, text }) {
           <div className="event-gallery">
             {event.images.map((src, i) => (
               <figure key={src} className="event-gallery-item">
-                <img src={src} alt={`${t(event.title, lang)} — ${i + 1}`} loading="lazy" onError={fallbackImg} onClick={() => setLightboxSrc(src)} />
+                <img src={src} alt={`${t(event.title, lang)} — ${i + 1}`} loading="lazy" onError={fallbackImg} onClick={() => setLightboxIdx(i)} />
               </figure>
             ))}
           </div>
@@ -82,8 +82,14 @@ export default function EventDetail({ lang, text }) {
           ) : <span />}
         </nav>
       </div>
-      {lightboxSrc && (
-        <Lightbox src={lightboxSrc} alt={t(event.title, lang)} onClose={() => setLightboxSrc(null)} />
+      {lightboxIdx !== null && (
+        <Lightbox
+          src={event.images[lightboxIdx]}
+          alt={`${t(event.title, lang)} — ${lightboxIdx + 1}`}
+          onClose={() => setLightboxIdx(null)}
+          onPrev={lightboxIdx > 0 ? () => setLightboxIdx(lightboxIdx - 1) : null}
+          onNext={lightboxIdx < event.images.length - 1 ? () => setLightboxIdx(lightboxIdx + 1) : null}
+        />
       )}
     </main>
   );
