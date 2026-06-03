@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { getSortedEvents } from "../data/events";
 import { instagramHighlights } from "../data/highlights";
@@ -17,17 +17,10 @@ export default function Home({ lang, text }) {
   const [teamIdx, setTeamIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const [cardW, setCardW] = useState(240);
-  const pausedRef = useRef(false);
-  const lastAdvRef = useRef(0);
-  const rafRef = useRef(null);
 
   const STEP = cardW + GAP;
 
   useEffect(() => { document.title = `${text.nav.home} | CIK`; }, [text.nav.home]);
-
-  useEffect(() => {
-    pausedRef.current = paused;
-  }, [paused]);
 
   useEffect(() => {
     const onResize = () => setCardW(window.innerWidth < 768 ? 160 : 240);
@@ -37,23 +30,12 @@ export default function Home({ lang, text }) {
   }, []);
 
   useEffect(() => {
-    if (!paused) lastAdvRef.current = 0;
+    if (paused) return;
+    const id = setInterval(() => {
+      setTeamIdx((prev) => (prev + 1) % team.length);
+    }, 3500);
+    return () => clearInterval(id);
   }, [paused]);
-
-  useEffect(() => {
-    function tick(now) {
-      if (!pausedRef.current) {
-        if (!lastAdvRef.current) lastAdvRef.current = now;
-        if (now - lastAdvRef.current >= 3000) {
-          setTeamIdx((prev) => (prev + 1) % team.length);
-          lastAdvRef.current = now;
-        }
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    }
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
 
   function getVisibleTeam() {
     const result = [];
