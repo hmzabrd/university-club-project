@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { events } from "../data/events";
 import { links } from "../data/siteText";
@@ -9,9 +9,13 @@ export default function About({ text }) {
     document.title = `${text.about.title} | CIK`;
   }, [text.about.title]);
 
-  const photos = events
-    .map((e) => ({ src: e.images[0], id: e.id }))
-    .slice(0, 8);
+  const photos = useMemo(() =>
+    events
+      .filter((e) => e.images.length > 0)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 8)
+      .map((e) => ({ src: e.images[0], id: e.id })),
+  []);
 
   return (
     <main className="page about-page">
