@@ -1,5 +1,3 @@
-/* Gallery page — all photos with category filter and pagination */
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAllGalleryImages } from "../data/events";

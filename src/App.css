@@ -3,6 +3,9 @@
    ============================================================
    This is the ONLY CSS file in the entire website.
    Every color, font, spacing, and animation is defined here.
+
+   Bootstrap is imported globally and used on the Join page cards.
+   All other pages use pure custom CSS.
    
    HOW THIS FILE IS ORGANIZED:
    1.   CSS Variables (colors, fonts, sizes) — :root
@@ -12,7 +15,7 @@
    5.   Header and navigation (.site-header, .main-nav)
    6.   Buttons (.btn, .btn-primary, .btn-outline)
    7.   Hero section (big banner at top of homepage)
-    8.   Home page sections (pillars, mosaic, partners)
+     8.   Home page sections (pillars, mosaic, partners)
    9.   Events grid and event cards
    10.  Gallery page
    11.  Event detail page (single activity view)
@@ -33,33 +36,7 @@
 
 /* Club Ibn Khaldoun — CIK site styles */
 
-/* ============================================================
-   🎨 LIGHT MODE COLORS (DEFAULT)
-   ============================================================
-   :root means "the topmost element" (the <html> tag).
-   Variables defined here are available everywhere in CSS.
-   
-   To use a variable: color: var(--cik-blue);
-   
-   --cik-blue:        Main brand color (medium blue)
-   --cik-blue-dark:   Darker blue (for hover states, footer background)
-   --cik-red:         Accent color (red, used for borders/emphasis)
-   --cik-blue-light:  Very light blue (for section backgrounds)
-   --text:            Main text color (dark)
-   --text-muted:      Secondary text color (gray)
-   --surface:         Card/box background (white)
-   --border:          Border color (light blue-gray)
-   --shadow:          Box shadow (subtle blue shadow)
-   --hero-overlay:    Dark overlay on hero background image
-   --bg:              Page background (light blue-white)
-   --font-ar:         Font for Arabic text (Cairo)
-   --font-latin:      Font for French/English text (Source Sans 3)
-   --radius:          Border radius for cards (10px)
-   --radius-sm:       Smaller border radius (6px)
-   --header-h:        Height of the sticky header (72px)
-   --container:       Max width of content area (1120px or 92% of viewport)
-   --transition:      Speed of hover animations (0.2s)
-   ============================================================ */
+/* 🎨 Light mode — default colors */
 :root {
     scroll-behavior: smooth;
     --cik-blue: #1a4f8a;
@@ -82,7 +59,6 @@
     --transition: 0.2s ease;
 }
 
-/* Smooth color transition when toggling dark/light mode */
 * {
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -104,6 +80,7 @@
     --bg: #0c1219;
 }
 
+/* ── Reset & base styles ───────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -112,15 +89,15 @@
 
 html {
     scroll-behavior: smooth;
-    scrollbar-width: none;
+    scrollbar-width: none;        /* Firefox: hide scrollbar */
 }
 
 html::-webkit-scrollbar {
-    display: none;
+    display: none;                /* Chrome/Safari: hide scrollbar */
 }
 
 body {
-    -ms-overflow-style: none;
+    -ms-overflow-style: none;     /* Edge/IE: hide scrollbar */
 }
 
 body {
@@ -162,6 +139,7 @@ h1,
 h2,
 h3,
 h4 {
+    font-weight: 700;
     line-height: 1.25;
     margin: 0 0 0.5em;
     color: var(--text);
@@ -1327,58 +1305,48 @@ ol {
 }
 
 /* Join */
-.join-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.join-card {
-    display: block;
-    padding: 1.5rem;
-    background: var(--cik-blue);
-    color: #fff;
+.join-boot {
     border-radius: var(--radius);
     text-decoration: none;
-    border-bottom: 4px solid var(--cik-red);
     transition:
-        background var(--transition),
-        transform var(--transition);
+        transform var(--transition),
+        box-shadow var(--transition);
 }
 
-.join-card:hover {
+.join-boot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 79, 138, 0.2);
+}
+
+.join-boot-blue {
+    background: var(--cik-blue);
+    color: #fff;
+    border: 2px solid var(--cik-blue);
+    border-bottom: 4px solid var(--cik-red);
+}
+
+.join-boot-blue:hover {
     background: var(--cik-blue-dark);
     color: #fff;
-    transform: translateY(-2px);
 }
 
-.join-card h3 {
-    color: #fff;
-    margin-bottom: 0.25rem;
-}
+.join-boot-blue h5 { color: #fff; }
+.join-boot-blue p { color: rgba(255, 255, 255, 0.85); }
 
-.join-card p {
-    margin: 0;
-    opacity: 0.85;
-    font-size: 0.9rem;
-}
-
-.join-card-alt {
+.join-boot-outline {
     background: var(--surface);
     color: var(--text);
     border: 2px solid var(--cik-blue);
     border-bottom: 4px solid var(--cik-red);
 }
 
-.join-card-alt:hover {
+.join-boot-outline:hover {
     background: var(--cik-blue-light);
     color: var(--text);
 }
 
-.join-card-alt h3 {
-    color: var(--cik-blue);
-}
+.join-boot-outline h5 { color: var(--cik-blue); }
+.join-boot-outline p { color: var(--text-muted); }
 
 .join-steps,
 .join-why,
@@ -1632,8 +1600,8 @@ ol {
         align-items: flex-start;
     }
 
-    .join-cards {
-        grid-template-columns: 1fr;
+    .join-boot {
+        margin-bottom: 0;
     }
 
     .event-nav {

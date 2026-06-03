@@ -1,5 +1,3 @@
-/* Event detail page — full info, gallery, prev/next navigation */
-
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getEventById, getAdjacentEvents } from "../data/events";
@@ -12,6 +10,7 @@ export default function EventDetail({ lang, text }) {
   const event = getEventById(id);
   const labels = text.activities;
   const { prev, next } = getAdjacentEvents(id);
+  const [lightboxSrc, setLightboxSrc] = useState(null);
 
   useEffect(() => {
     document.title = event ? `${t(event.title, lang)} | CIK` : "404 | CIK";
@@ -28,7 +27,6 @@ export default function EventDetail({ lang, text }) {
     );
   }
 
-  const [lightboxSrc, setLightboxSrc] = useState(null);
   const category = categories.find((cat) => cat.id === event.category);
   const igUrl = event.instagram || "https://www.instagram.com/cik_fsbm/";
   const igLabel = event.instagram ? labels.seeInstagram : text.home.followIg;

@@ -1,5 +1,3 @@
-/* 404 page — shown for unknown URLs */
-
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 

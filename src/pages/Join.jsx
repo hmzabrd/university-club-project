@@ -1,5 +1,3 @@
-/* Join page — Google Form, Instagram DM, steps, location */
-
 import { useEffect } from "react";
 import { links } from "../data/siteText";
 
@@ -16,15 +14,25 @@ export default function Join({ text }) {
         <h1 className="page-title">{j.title}</h1>
         <p className="lead">{j.intro}</p>
 
-        <div className="join-cards">
-          <a href={links.form} target="_blank" rel="noreferrer" className="join-card">
-            <h3>{j.formBtn}</h3>
-            <p>forms.gle/YYC5rPsRwjqKSCrG9</p>
-          </a>
-          <a href={links.instagram} target="_blank" rel="noreferrer" className="join-card join-card-alt">
-            <h3>{j.igBtn}</h3>
-            <p>@cik_fsbm</p>
-          </a>
+        <div className="row g-4 mb-5">
+          <div className="col-md-6">
+            <a href={links.form} target="_blank" rel="noreferrer"
+               className="card h-100 join-boot join-boot-blue text-decoration-none">
+              <div className="card-body d-flex flex-column justify-content-center text-center py-4">
+                <h5 className="card-title fw-bold mb-1">{j.formBtn}</h5>
+                <p className="card-text small mb-0">forms.gle/YYC5rPsRwjqKSCrG9</p>
+              </div>
+            </a>
+          </div>
+          <div className="col-md-6">
+            <a href={links.instagram} target="_blank" rel="noreferrer"
+               className="card h-100 join-boot join-boot-outline text-decoration-none">
+              <div className="card-body d-flex flex-column justify-content-center text-center py-4">
+                <h5 className="card-title fw-bold mb-1">{j.igBtn}</h5>
+                <p className="card-text small mb-0">@cik_fsbm</p>
+              </div>
+            </a>
+          </div>
         </div>
 
         <div className="join-steps">

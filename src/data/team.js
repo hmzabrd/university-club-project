@@ -1,4 +1,4 @@
-/* Team members — roleKey maps to siteText translations */
+/** Team members 2025/2026 bureau */
 
 export const team = [
   { id: '1', roleKey: 'rolePresident',      name: 'Douaa Baslam',                         photo: '/images/team/01.jpg' },

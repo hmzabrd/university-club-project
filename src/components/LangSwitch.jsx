@@ -1,5 +1,3 @@
-/* Language selector — three buttons: ع / FR / EN */
-
 const langs = [
   { id: 'ar', label: 'ع' },
   { id: 'fr', label: 'FR' },

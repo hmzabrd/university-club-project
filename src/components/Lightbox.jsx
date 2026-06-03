@@ -1,5 +1,3 @@
-/* Fullscreen image overlay — click or Escape to close */
-
 import { useEffect } from "react";
 import { fallbackImg } from "../utils/lang";
 

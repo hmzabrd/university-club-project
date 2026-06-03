@@ -1,8 +1,3 @@
-/* ============================================================
-   FILE: src/pages/Home.jsx — Homepage
-   Sections: Hero, About, Mosaic, Quote, Partners, Team, Activities
-   ============================================================ */
-
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { getSortedEvents } from "../data/events";
@@ -15,14 +10,13 @@ import { team } from "../data/team";
 
 const HAS_INTRO_VIDEO = false;
 const HERO_SRC = "/images/hero.jpg";
-
 const RANGE = 3;
 const GAP = 18;
 
 export default function Home({ lang, text }) {
   const [teamIdx, setTeamIdx] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [cardW, setCardW] = useState(window.innerWidth < 768 ? 160 : 240);
+  const [cardW, setCardW] = useState(240);
   const pausedRef = useRef(false);
   const lastAdvRef = useRef(0);
   const rafRef = useRef(null);
@@ -31,10 +25,13 @@ export default function Home({ lang, text }) {
 
   useEffect(() => { document.title = `${text.nav.home} | CIK`; }, [text.nav.home]);
 
-  pausedRef.current = paused;
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
 
   useEffect(() => {
     const onResize = () => setCardW(window.innerWidth < 768 ? 160 : 240);
+    onResize();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
@@ -68,6 +65,7 @@ export default function Home({ lang, text }) {
   }
 
   const latest = getSortedEvents().slice(0, 6);
+
   const mosaic = useMemo(() =>
     getSortedEvents()
       .filter((e) => e.images.length >= 3)
@@ -75,6 +73,7 @@ export default function Home({ lang, text }) {
       .slice(0, 12)
       .map((e, i) => ({ src: e.images[i % e.images.length], eventId: e.id })),
   []);
+
   const h = text.home;
 
   return (
@@ -100,7 +99,7 @@ export default function Home({ lang, text }) {
         </div>
       </section>
 
-      {/* About / Pillars */}
+      {/* Pillars */}
       <FadeIn><section className="section">
         <div className="container">
           <h2 className="section-title">{h.introTitle}</h2>
@@ -117,7 +116,7 @@ export default function Home({ lang, text }) {
         </div>
       </section></FadeIn>
 
-      {/* Photo Mosaic */}
+      {/* Photo mosaic */}
       <FadeIn><section className="section section-alt">
         <div className="container">
           <h2 className="section-title">{h.mosaicTitle}</h2>
@@ -131,7 +130,7 @@ export default function Home({ lang, text }) {
         </div>
       </section></FadeIn>
 
-      {/* Quote + Highlights */}
+      {/* Quote + Instagram highlights */}
       <FadeIn><section className="section">
         <div className="container">
           <blockquote className="club-quote">{h.quote}</blockquote>
@@ -163,7 +162,7 @@ export default function Home({ lang, text }) {
         </div>
       </section></FadeIn>
 
-      {/* Team Carousel */}
+      {/* Team carousel */}
       <FadeIn><section className="section">
         <div className="container">
           <div className="section-head">
@@ -178,15 +177,15 @@ export default function Home({ lang, text }) {
             {getVisibleTeam().map((member) => {
               const offset = member.virtualIdx - teamIdx;
               const dist = Math.abs(offset);
-              const t = dist / RANGE;
+              const normDist = dist / RANGE;
               return (
                 <article
                   key={member.id}
                   className={`team-carousel-card${dist === 0 ? ' is-center' : ''}`}
                   style={{
-                    transform: `translateY(-50%) translateX(-50%) translateX(${offset * STEP}px) scale(${1 - t * 0.3})`,
-                    opacity: 0.2 + (1 - t) * 0.8,
-                    filter: `brightness(${1 - t * 0.5})`,
+                    transform: `translateY(-50%) translateX(-50%) translateX(${offset * STEP}px) scale(${1 - normDist * 0.3})`,
+                    opacity: 0.2 + (1 - normDist) * 0.8,
+                    filter: `brightness(${1 - normDist * 0.5})`,
                     zIndex: RANGE - dist + 1,
                   }}
                 >
@@ -204,7 +203,7 @@ export default function Home({ lang, text }) {
         </div>
       </section></FadeIn>
 
-      {/* Latest Activities */}
+      {/* Latest 6 */}
       <FadeIn><section className="section">
         <div className="container">
           <div className="section-head">

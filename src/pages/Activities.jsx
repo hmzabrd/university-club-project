@@ -1,5 +1,3 @@
-/* Activities page — filterable list of events sorted newest-first */
-
 import { useState, useEffect } from "react";
 import { getSortedEvents } from "../data/events";
 import { categories } from "../data/categories";
@@ -9,9 +7,7 @@ import EventCard from "../components/EventCard";
 export default function Activities({ lang, text }) {
   const labels = text.activities;
   const allEvents = getSortedEvents();
-
   const [filter, setFilter] = useState("all");
-
   const events = filter === "all"
     ? allEvents
     : allEvents.filter((e) => e.category === filter);

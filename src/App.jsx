@@ -1,9 +1,8 @@
-/* App — root component: language, theme, routing, scroll indicators */
-
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { smoothScrollToTop } from "./utils/lang";
 import { siteText } from "./data/siteText";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -29,15 +28,12 @@ function getInitialLang() {
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => {
-    smoothScrollToTop();
-  }, [pathname]);
+  useEffect(() => { smoothScrollToTop(); }, [pathname]);
   return null;
 }
 
-function ReadingProgress() {
+  function ReadingProgress() {
   const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     function update() {
       const scrollTop = window.scrollY;
@@ -48,7 +44,6 @@ function ReadingProgress() {
     update();
     return () => window.removeEventListener("scroll", update);
   }, []);
-
   return (
     <div className="reading-progress">
       <div className="reading-progress-fill" style={{ width: `${progress}%` }} />
@@ -56,9 +51,8 @@ function ReadingProgress() {
   );
 }
 
-function ScrollProgress() {
+  function ScrollProgress() {
   const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     function update() {
       const scrollTop = window.scrollY;
@@ -69,7 +63,6 @@ function ScrollProgress() {
     update();
     return () => window.removeEventListener("scroll", update);
   }, []);
-
   return (
     <div className="scroll-progress">
       <div className="scroll-progress-fill" style={{ height: `${progress}%` }} />

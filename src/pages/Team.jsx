@@ -1,5 +1,3 @@
-/* Team page — club bureau members with photos and roles */
-
 import { useEffect } from "react";
 import { team } from "../data/team";
 import { fallbackImg } from "../utils/lang";

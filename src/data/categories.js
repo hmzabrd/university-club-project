@@ -1,4 +1,4 @@
-/* Activity categories with translated labels */
+/** Activity filter categories — matches event.category values */
 
 export const categories = [
   { id: 'all',       label: { ar: 'الكل',               fr: 'Tout',              en: 'All' } },

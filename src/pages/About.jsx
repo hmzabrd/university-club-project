@@ -1,5 +1,3 @@
-/* About page — club history, mission, activities, and CTA */
-
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { events } from "../data/events";

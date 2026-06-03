@@ -1,5 +1,4 @@
-/* Instagram story highlights shown on the homepage */
-/* instagram: direct post URL, or empty string to fall back to profile */
+/** Instagram story highlights shown on the Home page */
 
 export const instagramHighlights = [
   { name: 'Gaming',           emoji: '🎮', instagram: 'https://www.instagram.com/p/DGMFeZcM3Mm/' },

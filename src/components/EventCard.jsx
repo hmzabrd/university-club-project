@@ -1,5 +1,3 @@
-/* Reusable event card — cover photo, title, date, category, excerpt */
-
 import { Link } from "react-router-dom";
 import { categories } from "../data/categories";
 import { t, fallbackImg } from "../utils/lang";

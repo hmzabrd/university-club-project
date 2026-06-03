@@ -1533,7 +1533,11 @@ export const events = [
   }
 ];
 
+/* ---- Helper functions consumed by pages / components ---- */
+
 let _sorted, _allImages;
+
+/** Returns the events array sorted newest-first by date (cached). */
 export function getSortedEvents() {
   if (!_sorted) {
     _sorted = [...events].sort((a, b) => {
@@ -1545,10 +1549,12 @@ export function getSortedEvents() {
   return _sorted;
 }
 
+/** Looks up a single event by its Instagram post ID. */
 export function getEventById(id) {
   return events.find((event) => event.id === id);
 }
 
+/** Returns the previous and next event relative to the given ID, for navigation. */
 export function getAdjacentEvents(id) {
   const sorted = getSortedEvents();
   const index = sorted.findIndex((event) => event.id === id);
@@ -1559,6 +1565,7 @@ export function getAdjacentEvents(id) {
   };
 }
 
+/** Flattens all event images into a single array for the Gallery page (cached). */
 export function getAllGalleryImages() {
   if (!_allImages) {
     _allImages = events.flatMap((event) =>

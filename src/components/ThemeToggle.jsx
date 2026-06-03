@@ -1,5 +1,3 @@
-/* Dark/light mode toggle button */
-
 export default function ThemeToggle({ theme, setTheme, label }) {
   return (
     <button

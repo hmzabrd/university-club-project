@@ -1,5 +1,3 @@
-/* Wraps content in a fade-in on scroll */
-
 import { useEffect, useRef, useState } from "react";
 
 export default function FadeIn({ children }) {
@@ -9,6 +7,7 @@ export default function FadeIn({ children }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

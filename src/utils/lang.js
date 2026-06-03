@@ -1,8 +1,6 @@
-/* Translation helper and utility functions */
-
 export function smoothScrollToTop() {
-  const start = window.scrollY;
   const duration = 500;
+  const start = window.scrollY;
   const startTime = performance.now();
   function step(now) {
     const elapsed = now - startTime;
@@ -15,13 +13,9 @@ export function smoothScrollToTop() {
 }
 
 export function fallbackImg(e) {
-  e.target.src = "/images/logo.jpg";
+  e.target.src = '/images/logo.jpg';
 }
 
-/**
- * Translate a language object to the requested language.
- * Falls back: requested lang → en → fr → ar → ""
- */
 export function t(obj, lang) {
   if (!obj) return "";
   if (typeof obj === "string") return obj;

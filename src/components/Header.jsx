@@ -1,5 +1,3 @@
-/* Site header — logo, nav, language switch, theme toggle, hamburger menu */
-
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { smoothScrollToTop } from "../utils/lang";
@@ -36,7 +34,7 @@ export default function Header({ lang, setLang, text, theme, setTheme }) {
 
         <nav className={`main-nav${menuOpen ? " open" : ""}`}>
           {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} end={link.end} onClick={closeMenu}>
+            <NavLink key={link.to} to={link.to} end={link.end} className={({ isActive }) => isActive ? "active" : ""} onClick={closeMenu}>
               {link.label}
             </NavLink>
           ))}
@@ -48,7 +46,7 @@ export default function Header({ lang, setLang, text, theme, setTheme }) {
           <button
             className="hamburger"
             type="button"
-            aria-label="Menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >

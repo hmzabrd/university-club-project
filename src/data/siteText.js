@@ -1,4 +1,8 @@
-/* All site text in 3 languages: ar, fr, en */
+/**
+ * All user-facing text in 3 languages: Arabic (ar), French (fr), English (en).
+ * Every key has the same structure across all three languages.
+ * App.jsx selects: const text = siteText[lang];
+ */
 
 export const siteText = {
   ar: {
@@ -317,7 +321,7 @@ export const siteText = {
   },
 };
 
-/* External links — update once, used everywhere */
+/** External URLs (Instagram, Facebook, Google Form, etc.) */
 export const links = {
   instagram: 'https://www.instagram.com/cik_fsbm/',
   linkedin:  'https://www.linkedin.com/company/club-ibn-khaldoun/',
