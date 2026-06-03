@@ -69,34 +69,7 @@
         <!-- Default browser tab title -->
         <title>CIK | Club Ibn Khaldoun — FSBM</title>
 
-        <!-- 
-          🔧 GITHUB PAGES URL FIX
-          When hosting on GitHub Pages, direct URL access to a sub-page
-          (e.g. /activities/DYiC6BmCGyL) causes a 404 error from GitHub's server.
-          The 404.html page then redirects back to index.html with the original
-          URL encoded in the query string. This script decodes it and restores
-          the correct URL so React Router can show the right page.
-        -->
-        <script>
-            (function (l) {
-                if (l.search[1] === "/") {
-                    var decoded = l.search
-                        .slice(1)
-                        .split("&")
-                        .map(function (s) {
-                            return s.replace(/~and~/g, "&");
-                        });
-                    window.history.replaceState(
-                        null,
-                        null,
-                        l.pathname.slice(0, -1) +
-                            decoded[0] +
-                            (decoded[1] ? "?" + decoded[1] : "") +
-                            l.hash,
-                    );
-                }
-            })(window.location);
-        </script>
+
     </head>
     <body>
         <!-- 
