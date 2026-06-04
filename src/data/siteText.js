@@ -7,7 +7,7 @@ export const siteText = {
     faculty: 'كلية العلوم بن مسيك — جامعة الحسن الثاني بالدار البيضاء',
     tagline: 'معاً نصنع الأثر ونمنح الفرح أينما ذهبنا',
     verse: '﴿ وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ ﴾',
-    nav: { home: 'الرئيسية', about: 'من نحن', activities: 'أنشطتنا', team: 'الفريق', gallery: 'معرض', join: 'انضم إلينا', bonus: 'مكافأة' },
+    nav: { home: 'الرئيسية', about: 'من نحن', activities: 'أنشطتنا', team: 'الفريق', gallery: 'معرض', join: 'انضم إلينا' },
     hero: { ctaActivities: 'اكتشف أنشطتنا', ctaJoin: 'انضم للنادي' },
     themeToggle: 'الوضع الليلي',
     home: {
@@ -112,7 +112,7 @@ export const siteText = {
     faculty: "Faculté des Sciences Ben M'Sick — Université Hassan II, Casablanca",
     tagline: "Ensemble, nous créons de l'impact et partageons la joie",
     verse: '« Et quiconque fait le bien volontairement — Allah est Reconnaissant et Savant »',
-    nav: { home: 'Accueil', about: 'À propos', activities: 'Activités', team: 'Équipe', gallery: 'Galerie', join: 'Rejoindre', bonus: 'Bonus' },
+    nav: { home: 'Accueil', about: 'À propos', activities: 'Activités', team: 'Équipe', gallery: 'Galerie', join: 'Rejoindre' },
     hero: { ctaActivities: 'Nos activités', ctaJoin: 'Rejoindre le club' },
     themeToggle: 'Mode sombre',
     home: {
@@ -217,7 +217,7 @@ export const siteText = {
     faculty: "Faculty of Sciences Ben M'Sick — Hassan II University, Casablanca",
     tagline: 'Together we create impact and spread joy wherever we go',
     verse: '"Whoever volunteers good — indeed, Allah is Appreciative and Knowing."',
-    nav: { home: 'Home', about: 'About', activities: 'Activities', team: 'Team', gallery: 'Gallery', join: 'Join', bonus: 'Bonus' },
+    nav: { home: 'Home', about: 'About', activities: 'Activities', team: 'Team', gallery: 'Gallery', join: 'Join' },
     hero: { ctaActivities: 'Our activities', ctaJoin: 'Join the club' },
     themeToggle: 'Dark mode',
     home: {

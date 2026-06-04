@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { siteText } from "./data/siteText";
 
 import Header from "./components/Header";
-import BonusEtudiant from "./pages/bonusEtudiant";
 import Footer from "./components/Footer";
 import ReadingProgress from "./components/ReadingProgress";
 import ScrollProgress from "./components/ScrollProgress";
@@ -56,7 +55,6 @@ export default function App() {
       <BackToTop />
       <Routes>
         <Route path="/" element={<Home {...pageProps} />} />
-        <Route path="/bonus" element={<BonusEtudiant />} />
         <Route path="/about" element={<About {...pageProps} />} />
         <Route path="/activities" element={<Activities {...pageProps} />} />
         <Route path="/activities/:id" element={<EventDetail {...pageProps} />} />
