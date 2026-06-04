@@ -1,8 +1,4 @@
-/**
- * All user-facing text in 3 languages: Arabic (ar), French (fr), English (en).
- * Every key has the same structure across all three languages.
- * App.jsx selects: const text = siteText[lang];
- */
+/** Text in 3 languages (ar/fr/en). App.jsx picks: const text = siteText[lang] */
 
 export const siteText = {
   ar: {

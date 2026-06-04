@@ -1,42 +1,4 @@
-/* ============================================================
-   📄 FILE: src/App.css (ALL STYLES FOR THE WHOLE WEBSITE)
-   ============================================================
-   This is the ONLY CSS file in the entire website.
-   Every color, font, spacing, and animation is defined here.
-
-   Bootstrap is imported globally and used on the Join page cards.
-   All other pages use pure custom CSS.
-   
-   HOW THIS FILE IS ORGANIZED:
-   1.   CSS Variables (colors, fonts, sizes) — :root
-   2.   Dark mode overrides — [data-theme="dark"]
-   3.   Basic resets and base element styles (*, body, a, h1, etc.)
-   4.   Layout utilities (.container, .section)
-   5.   Header and navigation (.site-header, .main-nav)
-   6.   Buttons (.btn, .btn-primary, .btn-outline)
-   7.   Hero section (big banner at top of homepage)
-     8.   Home page sections (pillars, mosaic, partners)
-   9.   Events grid and event cards
-   10.  Gallery page
-   11.  Event detail page (single activity view)
-   12.  About page
-   13.  Team page
-   14.  Join page
-   15.  404 / Not Found page
-   16.  Footer
-   17.  Mobile responsive styles (@media max-width: 768px)
-   18.  Dark mode specific overrides
-   
-   KEY CONCEPT — CSS VARIABLES:
-   Instead of writing colors like #1a4f8a everywhere, we define
-   a variable like --cik-blue and use it everywhere.
-   To change the whole site's colors, edit ONE line at the top.
-   For dark mode, we override these variables in [data-theme="dark"].
-   ============================================================ */
-
-/* Club Ibn Khaldoun — CIK site styles */
-
-/* 🎨 Light mode — default colors */
+/* Light mode colors */
 :root {
     scroll-behavior: smooth;
     --cik-blue: #1a4f8a;
@@ -63,9 +25,7 @@
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* ============================================================
-   🌙 DARK MODE COLORS
-   ============================================================ */
+/* Reset & base */
 [data-theme="dark"] {
     --cik-blue: #4a8fd4;
     --cik-blue-dark: #2d6ba8;
@@ -80,7 +40,7 @@
     --bg: #0c1219;
 }
 
-/* ── Reset & base styles ───────────────────────────────────────────────── */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -989,7 +949,7 @@ ol {
     background: var(--cik-blue-light);
 }
 
-/* object-fit: contain so the full photo shows without cropping */
+/* Event detail gallery */
 .event-gallery-item img {
     cursor: pointer;
     width: 100%;
@@ -1621,7 +1581,7 @@ ol {
     }
 }
 
-/* ── Fade in on scroll ────────────────────────────────────────────────────── */
+/* Fade in */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -1632,7 +1592,7 @@ ol {
     transform: translateY(0);
 }
 
-/* ── Lightbox ─────────────────────────────────────────────────────────────── */
+/* Lightbox */
 .lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -1678,7 +1638,7 @@ ol {
     border-radius: 8px 0 0 8px;
 }
 
-/* ── Reading progress bar ──────────────────────────────────────────────────── */
+/* Reading progress */
 .reading-progress {
     position: fixed;
     top: 0;
@@ -1695,7 +1655,7 @@ ol {
     transition: width 0.1s linear;
 }
 
-/* ── Scroll progress (side) ────────────────────────────────────────────────── */
+/* Scroll progress */
 .scroll-progress {
     position: fixed;
     right: 0;
@@ -1713,7 +1673,7 @@ ol {
     transition: height 0.1s linear;
 }
 
-/* ── Back to top ──────────────────────────────────────────────────────────── */
+/* Back to top */
 .back-to-top {
     position: fixed;
     bottom: 1.5rem;

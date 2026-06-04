@@ -1,25 +1,4 @@
-/* ============================================================
-   📄 FILE: scripts/build-full-manifest.mjs (FULL SETUP SCRIPT)
-   ============================================================
-   THIS IS AN ADVANCED BUILD SCRIPT.
-   It is NOT needed for normal website editing.
-   
-   WHAT IT DOES:
-   1. Reads an Instagram data export (JSON file with posts)
-   2. Automatically generates posts-manifest.json from it
-   3. Copies all images from the export into public/images/events/
-   4. Copies team member photos into public/images/team/
-   5. Generates src/data/events.js (ready to use)
-   
-   WHEN TO USE IT:
-   - Only if you have a full Instagram data export (requested from Instagram)
-   - For initial setup or bulk importing many posts
-   - Normal workflow: just edit posts-manifest.json manually
-   
-   BEFORE RUNNING:
-   - Update the CIK and MEMBERS_DIR paths below to match your computer
-   - Run: npm run setup
-   ============================================================ */
+/* Builds posts-manifest.json from an Instagram data export. Not needed for normal use. */
 
 import {
   readFileSync,
@@ -44,20 +23,10 @@ const mediaDir = join(CIK, "media");
 
 const raw = JSON.parse(readFileSync(join(CIK, "manifest.json"), "utf8"));
 
-// The source manifest is the Instagram export manifest.json file.
-// It contains posts with captions, timestamps, and media file names.
+// ── helpers ──
 
-// ── helpers ──────────────────────────────────────────────────────────────────
-
-/**
- * getCategory
- * Determine the category of a post based on caption keywords.
- * @param {string} caption
- * @returns {string} one of 'health'|'solidarity'|'campus'|'culture'
- */
 function getCategory(caption = "") {
   const c = caption.toLowerCase();
-  // Categorize each post by keywords in the caption.
   if (/قافلة|صحة مدرسية|caravane|طبية|فحوص|صحي|مدرسة/.test(c)) return "health";
   if (
     /كسوة|إفطار|تبرع بالدم|دار الأطفال|تضامن|رمضان|يتيم|أطفال|بورد|سعادة|فطور/.test(
@@ -74,28 +43,14 @@ function getCategory(caption = "") {
   return "culture";
 }
 
-/**
- * cleanCaption
- * Strip invisible formatting characters and emojis from a caption.
- * @param {string} caption
- * @returns {string}
- */
 function cleanCaption(caption = "") {
-  // Remove hidden formatting characters and emojis from the caption.
   return caption
     .replace(/[⁨⁩\u202A\u202C\u200F\u200E]/g, "")
     .replace(/[\u{1F300}-\u{1FFFF}]/gu, "")
     .trim();
 }
 
-/**
- * firstLine
- * Return the first non-empty line from a caption string.
- * @param {string} caption
- * @returns {string}
- */
 function firstLine(caption = "") {
-  // Use the first non-empty line of the caption as the Arabic title.
   const lines = cleanCaption(caption)
     .split("\n")
     .map((l) => l.trim())
@@ -103,15 +58,7 @@ function firstLine(caption = "") {
   return lines[0] || "";
 }
 
-/**
- * excerpt
- * Produce a short preview of the caption (no more than maxLen characters).
- * @param {string} caption
- * @param {number} [maxLen=120]
- * @returns {string}
- */
 function excerpt(caption = "", maxLen = 120) {
-  // Shorten the caption text to a readable preview length.
   const text = cleanCaption(caption).replace(/\n+/g, " ").trim();
   if (text.length <= maxLen) return text;
   return text.substring(0, maxLen).trimEnd() + "…";
@@ -162,14 +109,7 @@ function titleFr(caption = "", code = "") {
   return "Activité du club";
 }
 
-/**
- * titleEn
- * Generate an English title for a post based on caption heuristics.
- * @param {string} caption
- * @returns {string}
- */
 function titleEn(caption = "") {
-  // Generate an English title based on caption keywords.
   const c = caption.toLowerCase();
   if (/قافلة طبية رقم 7/.test(c)) return "Medical caravan #7";
   if (/قافلة.*مدرسية|صحة مدرسية/.test(c)) return "School health caravan";
@@ -204,14 +144,7 @@ function titleEn(caption = "") {
   return "Club activity";
 }
 
-/**
- * titleAr
- * Generate an Arabic title using the first non-empty caption line.
- * @param {string} caption
- * @returns {string}
- */
 function titleAr(caption = "") {
-  // Generate an Arabic title by using the cleaned first line of the caption.
   const line = firstLine(caption)
     .replace(/^[📍🎉✨🩺🤝🔙⁨⁩\s]+/, "")
     .trim();
@@ -219,14 +152,7 @@ function titleAr(caption = "") {
   return "نشاط نادي ابن خلدون";
 }
 
-/**
- * locationAr
- * Extract a short Arabic location string from the caption.
- * @param {string} caption
- * @returns {string}
- */
 function locationAr(caption = "") {
-  // Extract an Arabic location from the caption or use defaults.
   const m = caption.match(/📍\s*([^\n\-–]+)/);
   if (m) return m[1].trim().substring(0, 50);
   if (/fsbm|كلية العلوم/.test(caption.toLowerCase()))
@@ -237,14 +163,7 @@ function locationAr(caption = "") {
   return "الدار البيضاء";
 }
 
-/**
- * locationFr
- * Convert an Arabic location to a French-friendly label.
- * @param {string} ar - Arabic location text
- * @returns {string}
- */
 function locationFr(ar = "") {
-  // Convert an Arabic location name to a French location label.
   if (/fsbm|كلية/.test(ar.toLowerCase())) return "FSBM Casablanca";
   if (/نواصر/.test(ar)) return "Nouaceur";
   if (/بوسكورة/.test(ar)) return "Bouskoura";
@@ -252,12 +171,11 @@ function locationFr(ar = "") {
   return "Casablanca";
 }
 
-// ── Build manifest ────────────────────────────────────────────────────────────
-// Create a list of posts with metadata and image counts from the Instagram export.
+// ── Build manifest ──
+
 const posts = [];
 
 for (const p of raw.posts) {
-  // Only include posts that have at least one image (skip video-only)
   const imageFiles = p.media_file_names.filter((f) => !f.endsWith(".mp4"));
   if (imageFiles.length === 0) continue;
 
@@ -302,8 +220,7 @@ writeFileSync(
 );
 console.log(`✓ posts-manifest.json → ${posts.length} posts with images`);
 
-// ── Copy images ───────────────────────────────────────────────────────────────
-// Build lookup: lowercase code → image filenames from raw manifest
+// ── Copy images ──
 const codeToFiles = {};
 for (const p of raw.posts) {
   codeToFiles[p.code.toLowerCase()] = p.media_file_names.filter(
@@ -334,7 +251,7 @@ for (const post of posts) {
 }
 console.log(`✓ Images: ${eventsCopied} events, ${imagesCopied} files copied`);
 
-// ── Team photos ───────────────────────────────────────────────────────────────
+// ── Team photos ──
 const membersDir = MEMBERS_DIR;
 const teamMap = [
   { file: "douaa baslam-presidente.jpeg", dest: "01.jpg" },
