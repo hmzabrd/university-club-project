@@ -14,6 +14,7 @@ export default function Header({ lang, setLang, text, theme, setTheme }) {
     { to: "/team", label: text.nav.team },
     { to: "/gallery", label: text.nav.gallery },
     { to: "/join", label: text.nav.join },
+    { to: "/bonus", label: text.nav.bonus },
   ];
 
   function closeMenu() {
